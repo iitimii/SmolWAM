@@ -1,0 +1,27 @@
+{
+ "setup": "96 held-out LIBERO contexts; forecast of both camera views 16 steps ahead, decoded with the Wan2.1 VAE; flow EPE compares RAFT optical flow (current -> forecast) with (current -> real future)",
+ "smolwam": {
+  "world_l1": 0.10089135604600112,
+  "primary_lpips": 0.12769315826396146,
+  "primary_psnr": 24.67396831512451,
+  "primary_flow_epe": 1.4275472362836201,
+  "primary_flow_cycle": 1.0095130602518718,
+  "primary_flow_cycle_gt": 0.9098468174537023,
+  "wrist_lpips": 0.4148997316757838,
+  "wrist_psnr": 18.940573533376057,
+  "wrist_flow_epe": 11.495269298553467,
+  "n": 96
+ },
+ "copy_current_frame": {
+  "world_l1": 0.1332921323676904,
+  "primary_lpips": 0.11508164989451568,
+  "primary_psnr": 24.322362581888836,
+  "primary_flow_epe": 1.6286234259605408,
+  "primary_flow_cycle": 0.1433669477701187,
+  "primary_flow_cycle_gt": 0.9098468174537023,
+  "wrist_lpips": 0.36245838304360706,
+  "wrist_psnr": 19.11491807301839,
+  "wrist_flow_epe": 11.556617657343546,
+  "n": 96
+ }
+}

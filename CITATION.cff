@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use SmolWAM, please cite the paper below."
+title: "SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/iitimii/SmolWAM"
+url: "https://smolwam.vercel.app"
+authors:
+  - given-names: Timi
+    family-names: Owolabi
+    affiliation: ML Collective
+  - given-names: Hikmah
+    family-names: Olawore
+    affiliation: ML Collective
+  - given-names: Frances
+    family-names: Adelakun
+    affiliation: ML Collective
+  - given-names: Ayotomiwa
+    family-names: Oyewumi
+    affiliation: ML Collective
+keywords:
+  - world-action model
+  - robot learning
+  - model compression
+  - diffusion transformer
+  - LIBERO
+preferred-citation:
+  type: conference-paper
+  title: "SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices"
+  authors:
+    - given-names: Timi
+      family-names: Owolabi
+    - given-names: Hikmah
+      family-names: Olawore
+    - given-names: Frances
+      family-names: Adelakun
+    - given-names: Ayotomiwa
+      family-names: Oyewumi
+  collection-title: "NeurIPS 2026 Workshop on Robotics World Modeling"
+  year: 2026
+  url: "https://smolwam.vercel.app"

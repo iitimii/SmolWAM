@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-label="Token layout: the teacher sequence of 1,764 tokens and the SmolWAM sequence of 1,008 tokens">
+
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+  .bg { fill: #ffffff; }
+  .panel { fill: #f6f8fa; stroke: #d1d9e0; stroke-width: 1; }
+  .box { fill: #ffffff; stroke: #d1d9e0; stroke-width: 1; }
+  .ink { fill: #1f2328; }
+  .muted { fill: #59636e; }
+  .line { stroke: #8c959f; stroke-width: 1.4; fill: none; }
+  .dash { stroke-dasharray: 4 3; }
+  .head { fill: #8c959f; }
+  .teach { fill: #e8590c; }
+  .ours { fill: #2a78d6; }
+  .teach-tint { fill: #fff1e8; stroke: #e8590c; stroke-width: 1.4; }
+  .ours-tint { fill: #eaf2fd; stroke: #2a78d6; stroke-width: 1.4; }
+  .badge-t { fill: #e8590c; }
+  .badge-o { fill: #2a78d6; }
+  .on-accent { fill: #ffffff; }
+  .gone { fill: #f6f8fa; stroke: #d1d9e0; stroke-width: 1; stroke-dasharray: 3 3; }
+  .gone-text { fill: #8c959f; text-decoration: line-through; }
+  .cond { fill: #e9edf1; }
+  .gen { fill: #d7e7fb; }
+  .act { fill: #2a78d6; }
+  .hatch-line { stroke: #c4ccd5; stroke-width: 1.2; }
+  .hatch-bg { fill: #f6f8fa; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #0d1117; }
+    .panel { fill: #151b23; stroke: #3d444d; }
+    .box { fill: #0d1117; stroke: #3d444d; }
+    .ink { fill: #f0f6fc; }
+    .muted { fill: #9198a1; }
+    .line { stroke: #656c76; }
+    .head { fill: #656c76; }
+    .teach { fill: #f0763a; }
+    .ours { fill: #4493f8; }
+    .teach-tint { fill: #2b1a10; stroke: #f0763a; }
+    .ours-tint { fill: #0f2340; stroke: #4493f8; }
+    .badge-t { fill: #d9561f; }
+    .badge-o { fill: #2f74d0; }
+    .gone { fill: #151b23; stroke: #3d444d; }
+    .gone-text { fill: #656c76; }
+    .cond { fill: #262c36; }
+    .gen { fill: #13305a; }
+    .act { fill: #4493f8; }
+    .hatch-line { stroke: #3d444d; }
+    .hatch-bg { fill: #151b23; }
+  }
+</style>
+
+<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" class="hatch-bg"/><line x1="0" y1="0" x2="0" y2="7" class="hatch-line"/></pattern><marker id="ah" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="head"/></marker></defs>
+<rect width="1000" height="300" rx="12" class="bg"/>
+<text x="40" y="24" class="ink" font-size="15" font-weight="700" text-anchor="start" >Cosmos Policy 2B</text>
+<text x="182" y="24" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >9 slots × 196 = 1,764 tokens, 5 passes</text>
+<path d="M42.0,64 L42.0,58 L445.7,58 L445.7,64" class="line"/>
+<text x="243.84" y="52" class="muted" font-size="11.5" font-weight="500" text-anchor="middle" >conditioning (clean, t = 0)</text>
+<path d="M449.7,64 L449.7,58 L955.3,58 L955.3,64" class="line"/>
+<text x="702.48" y="52" class="muted" font-size="11.5" font-weight="500" text-anchor="middle" >generated (denoised from σ = 80)</text>
+<rect x="41.0" y="70" width="99.9" height="46" rx="4" class="cond"/>
+<text x="90.96000000000001" y="90" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >blank</text>
+<text x="90.96000000000001" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="142.9" y="70" width="99.9" height="46" rx="4" fill="url(#hatch)"/>
+<text x="192.88000000000002" y="90" class="gone-text" font-size="12.5" font-weight="600" text-anchor="middle" >proprio</text>
+<text x="192.88000000000002" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="244.8" y="70" width="99.9" height="46" rx="4" class="cond"/>
+<text x="294.8" y="90" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >wrist</text>
+<text x="294.8" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="346.8" y="70" width="99.9" height="46" rx="4" class="cond"/>
+<text x="396.72" y="90" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >primary</text>
+<text x="396.72" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="448.7" y="70" width="99.9" height="46" rx="4" class="act"/>
+<text x="498.64000000000004" y="90" class="on-accent" font-size="12.5" font-weight="600" text-anchor="middle" >action</text>
+<text x="498.64000000000004" y="106" class="on-accent" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="550.6" y="70" width="99.9" height="46" rx="4" fill="url(#hatch)"/>
+<text x="600.5600000000001" y="90" class="gone-text" font-size="12.5" font-weight="600" text-anchor="middle" >fut. proprio</text>
+<text x="600.5600000000001" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="652.5" y="70" width="99.9" height="46" rx="4" class="gen"/>
+<text x="702.48" y="90" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >fut. wrist</text>
+<text x="702.48" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="754.4" y="70" width="99.9" height="46" rx="4" class="gen"/>
+<text x="804.4" y="90" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >fut. primary</text>
+<text x="804.4" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="856.4" y="70" width="99.9" height="46" rx="4" fill="url(#hatch)"/>
+<text x="906.3199999999999" y="90" class="gone-text" font-size="12.5" font-weight="600" text-anchor="middle" >value</text>
+<text x="906.3199999999999" y="106" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="41.0" y="196" width="99.9" height="46" rx="4" class="cond"/>
+<text x="90.96000000000001" y="216" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >blank</text>
+<text x="90.96000000000001" y="232" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="142.9" y="196" width="99.9" height="46" rx="4" class="cond"/>
+<text x="192.88000000000002" y="216" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >wrist</text>
+<text x="192.88000000000002" y="232" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="244.8" y="196" width="99.9" height="46" rx="4" class="cond"/>
+<text x="294.8" y="216" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >primary</text>
+<text x="294.8" y="232" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="346.8" y="196" width="12.6" height="46" rx="4" class="act"/>
+<rect x="361.3" y="196" width="99.9" height="46" rx="4" class="gen"/>
+<text x="411.28000000000003" y="216" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >fut. wrist</text>
+<text x="411.28000000000003" y="232" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<rect x="463.2" y="196" width="99.9" height="46" rx="4" class="gen"/>
+<text x="513.2" y="216" class="ink" font-size="12.5" font-weight="600" text-anchor="middle" >fut. primary</text>
+<text x="513.2" y="232" class="muted" font-size="11" font-weight="400" text-anchor="middle" >196</text>
+<path d="M91.0,119 C91.0,155.5 91.0,155.5 91.0,186" class="line" marker-end="url(#ah)"/>
+<path d="M294.8,119 C294.8,155.5 192.9,155.5 192.9,186" class="line" marker-end="url(#ah)"/>
+<path d="M396.7,119 C396.7,155.5 294.8,155.5 294.8,186" class="line" marker-end="url(#ah)"/>
+<path d="M498.6,119 C498.6,155.5 353.0,155.5 353.0,186" class="line" marker-end="url(#ah)"/>
+<path d="M702.5,119 C702.5,155.5 411.3,155.5 411.3,186" class="line" marker-end="url(#ah)"/>
+<path d="M804.4,119 C804.4,155.5 513.2,155.5 513.2,186" class="line" marker-end="url(#ah)"/>
+<path d="M192.9,119 C192.9,169 349.0,142 349.0,186" class="line dash" marker-end="url(#ah)"/>
+<path d="M353.0,245 L353.0,254" class="line"/>
+<text x="353.04" y="268" class="ink" font-size="12" font-weight="600" text-anchor="middle" >28 action queries</text>
+<text x="40" y="268" class="ink" font-size="15" font-weight="700" text-anchor="start" >SmolWAM</text>
+<text x="40" y="286" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >5 × 196 + 28 = 1,008 tokens, 1 pass</text>
+<circle cx="596.16" cy="206" r="3.5" class="act"/>
+<text x="606.16" y="210.5" class="ink" font-size="12.5" font-weight="400" text-anchor="start" >proprio → MLP into the action queries (dashed)</text>
+<circle cx="596.16" cy="225" r="3.5" class="act"/>
+<text x="606.16" y="229.5" class="ink" font-size="12.5" font-weight="400" text-anchor="start" >action slot: 196 → 28 learned queries</text>
+<circle cx="596.16" cy="244" r="3.5" class="head"/>
+<text x="606.16" y="248.5" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >future proprio and value slots: dropped</text>
+<circle cx="596.16" cy="263" r="3.5" class="head"/>
+<text x="606.16" y="267.5" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >text: 512 cross-attention tokens either way</text>
+</svg>

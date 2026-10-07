@@ -1,0 +1,68 @@
+{
+ "note": "Variants of SmolWAM reported in the paper. Latency marked contended was measured on a shared GPU.",
+ "longer_training": {
+  "screen_success_rate": 0.9333333333333333,
+  "screen_per_suite": {
+   "libero_10": 0.7333333333333333,
+   "libero_goal": 1.0,
+   "libero_object": 1.0,
+   "libero_spatial": 1.0
+  },
+  "description": "SmolWAM trained for 7,500 more steps in the compact layout",
+  "params_network": 878203392,
+  "tflop_per_query": 2.30118402048,
+  "latency_mean_s": 0.05999606585959555,
+  "peak_gpu_mem_gib": 2.360917568206787,
+  "full_success_rate": 0.9425,
+  "full_per_suite": {
+   "libero_10": 0.89,
+   "libero_goal": 0.94,
+   "libero_object": 1.0,
+   "libero_spatial": 0.94
+  }
+ },
+ "int8_weights_simulated": {
+  "screen_success_rate": 0.9166666666666666,
+  "screen_per_suite": {
+   "libero_10": 0.8,
+   "libero_goal": 0.8666666666666667,
+   "libero_object": 1.0,
+   "libero_spatial": 1.0
+  },
+  "latency_contended": true,
+  "description": "per-channel symmetric int8 weights on the 172 large linear layers, de-quantised to bf16 kernels",
+  "params_network": 878203392,
+  "tflop_per_query": 2.30118402048,
+  "latency_mean_s": 0.06522128652053652,
+  "peak_gpu_mem_gib": 2.360917568206787
+ },
+ "eight_blocks": {
+  "screen_success_rate": 0.8333333333333334,
+  "screen_per_suite": {
+   "libero_10": 0.6666666666666666,
+   "libero_goal": 0.8666666666666667,
+   "libero_object": 1.0,
+   "libero_spatial": 0.8
+  },
+  "latency_contended": true,
+  "description": "same recipe, 8 of 28 blocks",
+  "params_network": 601377280,
+  "tflop_per_query": 1.761472581632,
+  "latency_mean_s": 0.13364872888014362,
+  "peak_gpu_mem_gib": 1.8415770530700684
+ },
+ "latent_action_cascade": {
+  "screen_success_rate": 0.5333333333333333,
+  "screen_per_suite": {
+   "libero_10": 0.4,
+   "libero_goal": 0.4,
+   "libero_object": 0.8,
+   "libero_spatial": 0.5333333333333333
+  },
+  "description": "SmolWAM-LA: latent-action stream, asymmetric mask, mixture-of-transformer towers, 4-step conditional flow matching, dream forcing",
+  "params_network": 917420583,
+  "tflop_per_query": 4.28099117056,
+  "latency_mean_s": 0.238923207609987,
+  "peak_gpu_mem_gib": 2.434760093688965
+ }
+}

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 476" width="1000" height="476" role="img" aria-label="Inference pipeline of Cosmos Policy 2B compared with SmolWAM">
+
+<style>
+  svg { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif; }
+  .bg { fill: #ffffff; }
+  .panel { fill: #f6f8fa; stroke: #d1d9e0; stroke-width: 1; }
+  .box { fill: #ffffff; stroke: #d1d9e0; stroke-width: 1; }
+  .ink { fill: #1f2328; }
+  .muted { fill: #59636e; }
+  .line { stroke: #8c959f; stroke-width: 1.4; fill: none; }
+  .dash { stroke-dasharray: 4 3; }
+  .head { fill: #8c959f; }
+  .teach { fill: #e8590c; }
+  .ours { fill: #2a78d6; }
+  .teach-tint { fill: #fff1e8; stroke: #e8590c; stroke-width: 1.4; }
+  .ours-tint { fill: #eaf2fd; stroke: #2a78d6; stroke-width: 1.4; }
+  .badge-t { fill: #e8590c; }
+  .badge-o { fill: #2a78d6; }
+  .on-accent { fill: #ffffff; }
+  .gone { fill: #f6f8fa; stroke: #d1d9e0; stroke-width: 1; stroke-dasharray: 3 3; }
+  .gone-text { fill: #8c959f; text-decoration: line-through; }
+  .cond { fill: #e9edf1; }
+  .gen { fill: #d7e7fb; }
+  .act { fill: #2a78d6; }
+  .hatch-line { stroke: #c4ccd5; stroke-width: 1.2; }
+  .hatch-bg { fill: #f6f8fa; }
+  @media (prefers-color-scheme: dark) {
+    .bg { fill: #0d1117; }
+    .panel { fill: #151b23; stroke: #3d444d; }
+    .box { fill: #0d1117; stroke: #3d444d; }
+    .ink { fill: #f0f6fc; }
+    .muted { fill: #9198a1; }
+    .line { stroke: #656c76; }
+    .head { fill: #656c76; }
+    .teach { fill: #f0763a; }
+    .ours { fill: #4493f8; }
+    .teach-tint { fill: #2b1a10; stroke: #f0763a; }
+    .ours-tint { fill: #0f2340; stroke: #4493f8; }
+    .badge-t { fill: #d9561f; }
+    .badge-o { fill: #2f74d0; }
+    .gone { fill: #151b23; stroke: #3d444d; }
+    .gone-text { fill: #656c76; }
+    .cond { fill: #262c36; }
+    .gen { fill: #13305a; }
+    .act { fill: #4493f8; }
+    .hatch-line { stroke: #3d444d; }
+    .hatch-bg { fill: #151b23; }
+  }
+</style>
+
+<defs><marker id="ah" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="head"/></marker></defs>
+<rect width="1000" height="476" rx="12" class="bg"/>
+<rect x="14" y="12" width="972" height="216" rx="10" class="panel"/>
+<rect x="14" y="26" width="4" height="188" rx="2" class="teach"/>
+<text x="40" y="42" font-size="16" font-weight="700" class="ink">Cosmos Policy 2B<tspan dx="10" font-size="12" font-weight="600" class="teach">teacher</tspan></text>
+<text x="964" y="42" class="muted" font-size="12.5" font-weight="500" text-anchor="end" >1.96 B params  ·  31.0 TFLOP  ·  624 ms  ·  7.55 GiB VRAM</text>
+<rect x="40" y="64" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="90.5" class="ink" font-size="13" font-weight="600" text-anchor="start" >Instruction</text>
+<path d="M208,86.0 L231,86.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="64" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="83.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >T5-XXL encoder</text>
+<text x="250" y="99.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >4.8 B params, 512 tokens</text>
+<path d="M474,86.0 L505,86.0" class="line" marker-end="url(#ah)"/>
+<rect x="40" y="116" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="135.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >Wrist + primary cam</text>
+<text x="52" y="151.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >33-frame clip each</text>
+<path d="M208,138.0 L231,138.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="116" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="135.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >Wan2.1 VAE, clip mode</text>
+<text x="250" y="151.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >video encode of the history</text>
+<path d="M474,138.0 L505,138.0" class="line" marker-end="url(#ah)"/>
+<rect x="40" y="168" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="194.5" class="ink" font-size="13" font-weight="600" text-anchor="start" >Proprioception</text>
+<path d="M208,190.0 L231,190.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="168" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="187.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >Tiled into a latent slot</text>
+<text x="250" y="203.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >196 tokens</text>
+<path d="M474,190.0 L505,190.0" class="line" marker-end="url(#ah)"/>
+<rect x="512" y="64" width="238" height="148" rx="8" class="teach-tint"/>
+<text x="528" y="92" class="ink" font-size="14" font-weight="700" text-anchor="start" >Video diffusion transformer</text>
+<text x="528" y="114" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >28 blocks, width 2048</text>
+<text x="528" y="132" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >9 slots, 1,764 tokens</text>
+<rect x="528" y="172" width="149.8" height="26" rx="13" class="badge-t"/>
+<text x="602.9" y="189.5" class="on-accent" font-size="12.5" font-weight="600" text-anchor="middle" >5 denoising passes</text>
+<path d="M750,78.0 L781,78.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="63.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="82.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >16-action chunk</text>
+<path d="M750,118.0 L781,118.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="103.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="122.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >Future images (2 cams)</text>
+<path d="M750,158.0 L781,158.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="143.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="162.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >Future proprio</text>
+<path d="M750,198.0 L781,198.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="183.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="202.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >Value</text>
+<rect x="14" y="244" width="972" height="216" rx="10" class="panel"/>
+<rect x="14" y="258" width="4" height="188" rx="2" class="ours"/>
+<text x="40" y="274" font-size="16" font-weight="700" class="ink">SmolWAM<tspan dx="10" font-size="12" font-weight="600" class="ours">ours</tspan></text>
+<text x="964" y="274" class="muted" font-size="12.5" font-weight="500" text-anchor="end" >0.88 B params  ·  2.30 TFLOP  ·  57 ms  ·  2.36 GiB VRAM</text>
+<rect x="40" y="296" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="322.5" class="ink" font-size="13" font-weight="600" text-anchor="start" >Instruction</text>
+<path d="M208,318.0 L231,318.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="296" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="315.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >BERT-base, cached</text>
+<text x="250" y="331.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >linear to 1024-d, zero-pad to 512</text>
+<path d="M474,318.0 L505,318.0" class="line" marker-end="url(#ah)"/>
+<rect x="40" y="348" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="367.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >Wrist + primary cam</text>
+<text x="52" y="383.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >1 frame each</text>
+<path d="M208,370.0 L231,370.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="348" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="367.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >Wan2.1 VAE, single frame</text>
+<text x="250" y="383.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >+ 0.5 M latent adapter</text>
+<path d="M474,370.0 L505,370.0" class="line" marker-end="url(#ah)"/>
+<rect x="40" y="400" width="168" height="44" rx="6" class="box"/>
+<text x="52" y="426.5" class="ink" font-size="13" font-weight="600" text-anchor="start" >Proprioception</text>
+<path d="M208,422.0 L231,422.0" class="line" marker-end="url(#ah)"/>
+<rect x="238" y="400" width="236" height="44" rx="6" class="box"/>
+<text x="250" y="419.0" class="ink" font-size="13" font-weight="600" text-anchor="start" >MLP into action queries</text>
+<text x="250" y="435.0" class="muted" font-size="11.5" font-weight="400" text-anchor="start" >no state slot</text>
+<path d="M474,422.0 L505,422.0" class="line" marker-end="url(#ah)"/>
+<rect x="512" y="296" width="238" height="148" rx="8" class="ours-tint"/>
+<text x="528" y="324" class="ink" font-size="14" font-weight="700" text-anchor="start" >Video diffusion transformer</text>
+<text x="528" y="346" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >12 of 28 blocks (0-2, 19-27)</text>
+<text x="528" y="364" class="muted" font-size="12.5" font-weight="400" text-anchor="start" >+ 6 V-to-L layers, 1,008 tokens</text>
+<rect x="528" y="404" width="192.39999999999998" height="26" rx="13" class="badge-o"/>
+<text x="624.2" y="421.5" class="on-accent" font-size="12.5" font-weight="600" text-anchor="middle" >1 pass, one-step readout</text>
+<path d="M750,310.0 L781,310.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="295.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="314.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >16-action chunk</text>
+<path d="M750,350.0 L781,350.0" class="line" marker-end="url(#ah)"/>
+<rect x="788" y="335.0" width="176" height="30" rx="6" class="box"/>
+<text x="800" y="354.5" class="ink" font-size="12.5" font-weight="600" text-anchor="start" >Future images (2 cams)</text>
+<rect x="788" y="375.0" width="176" height="30" rx="6" class="gone"/>
+<text x="800" y="394.5" class="gone-text" font-size="12.5" font-weight="500" text-anchor="start" >Future proprio</text>
+<text x="954" y="394.5" class="muted" font-size="11" font-weight="400" text-anchor="end" >dropped</text>
+<rect x="788" y="415.0" width="176" height="30" rx="6" class="gone"/>
+<text x="800" y="434.5" class="gone-text" font-size="12.5" font-weight="500" text-anchor="start" >Value</text>
+<text x="954" y="434.5" class="muted" font-size="11" font-weight="400" text-anchor="end" >dropped</text>
+</svg>

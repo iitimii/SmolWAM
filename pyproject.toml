@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smolwam"
+version = "1.0.0"
+description = "SmolWAM: a latent world-action model for robotic manipulation on edge devices"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [
+    { name = "Timi Owolabi" },
+    { name = "Hikmah Olawore" },
+    { name = "Frances Adelakun" },
+    { name = "Ayotomiwa Oyewumi" },
+]
+keywords = ["robotics", "world model", "vision-language-action", "diffusion transformer", "LIBERO"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.5",
+    "numpy",
+    "einops",
+    "safetensors",
+    "huggingface_hub>=0.23",
+    "transformers>=4.40",
+    "pillow",
+]
+
+[project.optional-dependencies]
+# LIBERO simulation; `libero` itself must be installed with --no-deps afterwards (scripts/install_libero.sh)
+libero = [
+    "robosuite==1.4.0",
+    "mujoco==3.3.2",
+    "bddl==1.0.1",
+    "easydict",
+    "future",
+    "gymnasium",
+    "matplotlib",
+    "pyyaml",
+    "termcolor",
+    "imageio[ffmpeg]",
+]
+train = ["h5py", "torchvision", "lpips"]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Homepage = "https://smolwam.vercel.app"
+Model = "https://huggingface.co/timiiowolabi/SmolWAM"
+
+[tool.setuptools.packages.find]
+include = ["smolwam*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["smolwam"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: needs the released weights (network or SMOLWAM_MODEL) and takes about a minute on a CPU"]

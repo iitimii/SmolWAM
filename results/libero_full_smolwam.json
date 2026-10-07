@@ -1,0 +1,3259 @@
+{
+ "model": "SmolWAM",
+ "protocol": "full: 40 tasks x 10 trials = 400 episodes",
+ "seed": 195,
+ "hardware": "1x NVIDIA A100-SXM4-40GB, bf16",
+ "num_episodes": 400,
+ "num_success": 382,
+ "success_rate": 0.955,
+ "per_suite": {
+  "libero_10": 0.89,
+  "libero_goal": 0.94,
+  "libero_object": 1.0,
+  "libero_spatial": 0.99
+ },
+ "per_task": {
+  "libero_10/0": 1.0,
+  "libero_10/1": 0.9,
+  "libero_10/2": 1.0,
+  "libero_10/3": 0.7,
+  "libero_10/4": 0.9,
+  "libero_10/5": 1.0,
+  "libero_10/6": 0.8,
+  "libero_10/7": 0.9,
+  "libero_10/8": 0.7,
+  "libero_10/9": 1.0,
+  "libero_goal/0": 1.0,
+  "libero_goal/1": 1.0,
+  "libero_goal/2": 0.8,
+  "libero_goal/3": 0.9,
+  "libero_goal/4": 1.0,
+  "libero_goal/5": 1.0,
+  "libero_goal/6": 0.7,
+  "libero_goal/7": 1.0,
+  "libero_goal/8": 1.0,
+  "libero_goal/9": 1.0,
+  "libero_object/0": 1.0,
+  "libero_object/1": 1.0,
+  "libero_object/2": 1.0,
+  "libero_object/3": 1.0,
+  "libero_object/4": 1.0,
+  "libero_object/5": 1.0,
+  "libero_object/6": 1.0,
+  "libero_object/7": 1.0,
+  "libero_object/8": 1.0,
+  "libero_object/9": 1.0,
+  "libero_spatial/0": 1.0,
+  "libero_spatial/1": 1.0,
+  "libero_spatial/2": 1.0,
+  "libero_spatial/3": 1.0,
+  "libero_spatial/4": 1.0,
+  "libero_spatial/5": 1.0,
+  "libero_spatial/6": 1.0,
+  "libero_spatial/7": 1.0,
+  "libero_spatial/8": 1.0,
+  "libero_spatial/9": 0.9
+ },
+ "episodes": [
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 0,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 273
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 1,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 265
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 2,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 260
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 3,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 282
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 4,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 367
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 5,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 266
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 6,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 336
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 7,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 259
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 8,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 266
+  },
+  {
+   "suite": "libero_10",
+   "task": 0,
+   "ep": 9,
+   "desc": "put both the alphabet soup and the tomato sauce in the basket",
+   "success": true,
+   "steps": 262
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 0,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 248
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 1,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 2,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 248
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 3,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 252
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 4,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 254
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 5,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 253
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 6,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 252
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 7,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 250
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 8,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 253
+  },
+  {
+   "suite": "libero_10",
+   "task": 1,
+   "ep": 9,
+   "desc": "put both the cream cheese box and the butter in the basket",
+   "success": true,
+   "steps": 251
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 0,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 238
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 1,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 249
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 2,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 248
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 3,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 245
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 4,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 240
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 5,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 250
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 6,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 251
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 7,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 251
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 8,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 251
+  },
+  {
+   "suite": "libero_10",
+   "task": 2,
+   "ep": 9,
+   "desc": "turn on the stove and put the moka pot on it",
+   "success": true,
+   "steps": 247
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 0,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 1,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 223
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 2,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 3,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 4,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 240
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 5,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 215
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 6,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 225
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 7,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 218
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 8,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 224
+  },
+  {
+   "suite": "libero_10",
+   "task": 3,
+   "ep": 9,
+   "desc": "put the black bowl in the bottom drawer of the cabinet and close it",
+   "success": true,
+   "steps": 216
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 0,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 226
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 1,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 219
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 2,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 222
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 3,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 227
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 4,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 229
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 5,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 235
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 6,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 7,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 231
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 8,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 220
+  },
+  {
+   "suite": "libero_10",
+   "task": 4,
+   "ep": 9,
+   "desc": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+   "success": true,
+   "steps": 233
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 0,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 184
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 1,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 178
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 2,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 180
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 3,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 175
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 4,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 177
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 5,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 177
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 6,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 168
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 7,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 173
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 8,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 171
+  },
+  {
+   "suite": "libero_10",
+   "task": 5,
+   "ep": 9,
+   "desc": "pick up the book and place it in the back compartment of the caddy",
+   "success": true,
+   "steps": 171
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 0,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 213
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 1,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 2,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 239
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 3,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 213
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 4,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 221
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 5,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 225
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 6,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 214
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 7,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 8,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 222
+  },
+  {
+   "suite": "libero_10",
+   "task": 6,
+   "ep": 9,
+   "desc": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+   "success": true,
+   "steps": 225
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 0,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 244
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 1,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 242
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 2,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 244
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 3,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 252
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 4,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 256
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 5,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 257
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 6,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 254
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 7,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 244
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 8,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 7,
+   "ep": 9,
+   "desc": "put both the alphabet soup and the cream cheese box in the basket",
+   "success": true,
+   "steps": 244
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 0,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 382
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 1,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 377
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 2,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 392
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 3,
+   "desc": "put both moka pots on the stove",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 4,
+   "desc": "put both moka pots on the stove",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 5,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 381
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 6,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 393
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 7,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 385
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 8,
+   "desc": "put both moka pots on the stove",
+   "success": false,
+   "steps": 530
+  },
+  {
+   "suite": "libero_10",
+   "task": 8,
+   "ep": 9,
+   "desc": "put both moka pots on the stove",
+   "success": true,
+   "steps": 380
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 0,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 261
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 1,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 263
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 2,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 263
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 3,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 267
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 4,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 277
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 5,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 260
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 6,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 257
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 7,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 260
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 8,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 277
+  },
+  {
+   "suite": "libero_10",
+   "task": 9,
+   "ep": 9,
+   "desc": "put the yellow and white mug in the microwave and close it",
+   "success": true,
+   "steps": 259
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 0,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 1,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 2,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 136
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 3,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 4,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 5,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 6,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 175
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 7,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 8,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_goal",
+   "task": 0,
+   "ep": 9,
+   "desc": "open the middle drawer of the cabinet",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 0,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 1,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 2,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 3,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 4,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 5,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 98
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 6,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 96
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 7,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 95
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 8,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 1,
+   "ep": 9,
+   "desc": "put the bowl on the stove",
+   "success": true,
+   "steps": 99
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 0,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 100
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 1,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 100
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 2,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 111
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 3,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 4,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 98
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 5,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 6,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 99
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 7,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 102
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 8,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 2,
+   "ep": 9,
+   "desc": "put the wine bottle on top of the cabinet",
+   "success": true,
+   "steps": 102
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 0,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 218
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 1,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 179
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 2,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 183
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 3,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 251
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 4,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 5,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 255
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 6,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 180
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 7,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 175
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 8,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 187
+  },
+  {
+   "suite": "libero_goal",
+   "task": 3,
+   "ep": 9,
+   "desc": "open the top drawer and put the bowl inside",
+   "success": true,
+   "steps": 191
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 0,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 93
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 1,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 95
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 2,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 95
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 3,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 95
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 4,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 5,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 91
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 6,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 91
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 7,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 98
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 8,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_goal",
+   "task": 4,
+   "ep": 9,
+   "desc": "put the bowl on top of the cabinet",
+   "success": true,
+   "steps": 93
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 0,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 144
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 1,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 2,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 148
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 3,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 142
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 4,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 5,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 6,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 143
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 7,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 148
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 8,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 151
+  },
+  {
+   "suite": "libero_goal",
+   "task": 5,
+   "ep": 9,
+   "desc": "push the plate to the front of the stove",
+   "success": true,
+   "steps": 143
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 0,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 1,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 2,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 168
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 3,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 4,
+   "desc": "put the cream cheese in the bowl",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 5,
+   "desc": "put the cream cheese in the bowl",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 6,
+   "desc": "put the cream cheese in the bowl",
+   "success": false,
+   "steps": 310
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 7,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 8,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 6,
+   "ep": 9,
+   "desc": "put the cream cheese in the bowl",
+   "success": true,
+   "steps": 97
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 0,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 86
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 1,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 2,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 89
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 3,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 81
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 4,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 84
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 5,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 6,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 7,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 88
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 8,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 86
+  },
+  {
+   "suite": "libero_goal",
+   "task": 7,
+   "ep": 9,
+   "desc": "turn on the stove",
+   "success": true,
+   "steps": 80
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 0,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 1,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 91
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 2,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 3,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 84
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 4,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 5,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 6,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 7,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 84
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 8,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 8,
+   "ep": 9,
+   "desc": "put the bowl on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 0,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 158
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 1,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 139
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 2,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 160
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 3,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 144
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 4,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 156
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 5,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 145
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 6,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 135
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 7,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 8,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 149
+  },
+  {
+   "suite": "libero_goal",
+   "task": 9,
+   "ep": 9,
+   "desc": "put the wine bottle on the rack",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 0,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 1,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 2,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 3,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 4,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 5,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 6,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 7,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 8,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 0,
+   "ep": 9,
+   "desc": "pick up the alphabet soup and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 0,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 130
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 1,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 136
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 2,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 3,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 4,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 5,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 6,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 7,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 8,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 130
+  },
+  {
+   "suite": "libero_object",
+   "task": 1,
+   "ep": 9,
+   "desc": "pick up the cream cheese and place it in the basket",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 0,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 1,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 125
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 2,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 120
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 3,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 125
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 4,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 126
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 5,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 125
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 6,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 121
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 7,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 122
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 8,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 122
+  },
+  {
+   "suite": "libero_object",
+   "task": 2,
+   "ep": 9,
+   "desc": "pick up the salad dressing and place it in the basket",
+   "success": true,
+   "steps": 123
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 0,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 1,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 130
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 2,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 3,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 4,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 141
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 5,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 6,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 138
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 7,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 8,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 135
+  },
+  {
+   "suite": "libero_object",
+   "task": 3,
+   "ep": 9,
+   "desc": "pick up the bbq sauce and place it in the basket",
+   "success": true,
+   "steps": 141
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 0,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 152
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 1,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 150
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 2,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 151
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 3,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 152
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 4,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 152
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 5,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 151
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 6,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 144
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 7,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 155
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 8,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 150
+  },
+  {
+   "suite": "libero_object",
+   "task": 4,
+   "ep": 9,
+   "desc": "pick up the ketchup and place it in the basket",
+   "success": true,
+   "steps": 150
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 0,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 1,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 2,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 3,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 135
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 4,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 5,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 6,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 7,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 8,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 137
+  },
+  {
+   "suite": "libero_object",
+   "task": 5,
+   "ep": 9,
+   "desc": "pick up the tomato sauce and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 0,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 1,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 158
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 2,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 3,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 4,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 153
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 5,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 154
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 6,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 148
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 7,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 8,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 6,
+   "ep": 9,
+   "desc": "pick up the butter and place it in the basket",
+   "success": true,
+   "steps": 147
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 0,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 143
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 1,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 148
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 2,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 3,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 146
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 4,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 139
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 5,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 142
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 6,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 145
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 7,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 139
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 8,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 145
+  },
+  {
+   "suite": "libero_object",
+   "task": 7,
+   "ep": 9,
+   "desc": "pick up the milk and place it in the basket",
+   "success": true,
+   "steps": 145
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 0,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 153
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 1,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 158
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 2,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 158
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 3,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 155
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 4,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 155
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 5,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 159
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 6,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 153
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 7,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 156
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 8,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 161
+  },
+  {
+   "suite": "libero_object",
+   "task": 8,
+   "ep": 9,
+   "desc": "pick up the chocolate pudding and place it in the basket",
+   "success": true,
+   "steps": 156
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 0,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 1,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 2,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 3,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 128
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 4,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 5,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 130
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 6,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 7,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 8,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_object",
+   "task": 9,
+   "ep": 9,
+   "desc": "pick up the orange juice and place it in the basket",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 0,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 85
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 1,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 2,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 3,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 86
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 4,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 5,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 85
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 6,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 7,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 87
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 8,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 85
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 0,
+   "ep": 9,
+   "desc": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+   "success": true,
+   "steps": 86
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 0,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 117
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 1,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 115
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 2,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 114
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 3,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 114
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 4,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 120
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 5,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 115
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 6,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 115
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 7,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 120
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 8,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 108
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 1,
+   "ep": 9,
+   "desc": "pick up the black bowl next to the ramekin and place it on the plate",
+   "success": true,
+   "steps": 117
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 0,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 101
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 1,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 105
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 2,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 105
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 3,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 99
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 4,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 5,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 107
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 6,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 7,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 8,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 2,
+   "ep": 9,
+   "desc": "pick up the black bowl from table center and place it on the plate",
+   "success": true,
+   "steps": 104
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 0,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 1,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 2,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 93
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 3,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 4,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 5,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 6,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 91
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 7,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 94
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 8,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 92
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 3,
+   "ep": 9,
+   "desc": "pick up the black bowl on the cookie box and place it on the plate",
+   "success": true,
+   "steps": 91
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 0,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 1,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 134
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 2,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 130
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 3,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 135
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 4,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 136
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 5,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 133
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 6,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 7,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 135
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 8,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 4,
+   "ep": 9,
+   "desc": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 142
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 0,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 105
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 1,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 2,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 3,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 4,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 105
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 5,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 6,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 106
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 7,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 108
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 8,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 104
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 5,
+   "ep": 9,
+   "desc": "pick up the black bowl on the ramekin and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 0,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 118
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 1,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 116
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 2,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 116
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 3,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 116
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 4,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 114
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 5,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 118
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 6,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 118
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 7,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 117
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 8,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 120
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 6,
+   "ep": 9,
+   "desc": "pick up the black bowl next to the cookie box and place it on the plate",
+   "success": true,
+   "steps": 116
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 0,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 1,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 128
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 2,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 126
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 3,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 4,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 122
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 5,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 126
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 6,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 7,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 129
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 8,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 126
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 7,
+   "ep": 9,
+   "desc": "pick up the black bowl on the stove and place it on the plate",
+   "success": true,
+   "steps": 131
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 0,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 1,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 105
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 2,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 3,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 104
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 4,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 107
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 5,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 103
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 6,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 100
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 7,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 99
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 8,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 104
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 8,
+   "ep": 9,
+   "desc": "pick up the black bowl next to the plate and place it on the plate",
+   "success": true,
+   "steps": 102
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 0,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 1,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 125
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 2,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 126
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 3,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 122
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 4,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 5,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 127
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 6,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 123
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 7,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 119
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 8,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": false,
+   "steps": 230
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 9,
+   "ep": 9,
+   "desc": "pick up the black bowl on the wooden cabinet and place it on the plate",
+   "success": true,
+   "steps": 128
+  }
+ ]
+}

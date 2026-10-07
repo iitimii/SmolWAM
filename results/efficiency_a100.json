@@ -1,0 +1,49 @@
+{
+ "hardware": "1x NVIDIA A100-SXM4-40GB (Lambda), PyTorch 2.7.0+cu128, bf16, batch 1; text features cached for every model",
+ "unit": "per query = one 16-action chunk",
+ "smolwam": {
+  "params_network": 878203392,
+  "params_trunk": 849108992,
+  "params_vae_encoder": 53597200,
+  "params_latent_adapter": 527408,
+  "params_text_encoder_bert": 109482240,
+  "tflop_per_query": 2.3028313989119997,
+  "tflop_network": 1.632913559552,
+  "tflop_vae_encode": 0.66991783936,
+  "latency_mean_s": 0.056634016689858985,
+  "latency_median_s": 0.056585854497825494,
+  "latency_p95_s": 0.05742716000113433,
+  "latency_parts_s": {
+   "preproc": 0.006807391649999772,
+   "vae": 0.012887865340053395,
+   "model": 0.03693875969980581
+  },
+  "action_hz": 282.51571997126234,
+  "chunks_per_s": 17.657232498203896,
+  "peak_gpu_mem_gib": 2.360917568206787,
+  "peak_rss_gib": 7.5084991455078125,
+  "num_tokens": 1008,
+  "source": "bench.py, 100 uncontended queries"
+ },
+ "cosmos_policy": {
+  "params_network": 1956413440,
+  "tflop_per_query": 31.0,
+  "denoising_steps": 5,
+  "latency_mean_s": 0.6243505501428055,
+  "latency_median_s": 0.5884775780004929,
+  "peak_gpu_mem_gib": 7.546159744262695,
+  "peak_rss_gib": 8.583759307861328,
+  "num_tokens": 1764,
+  "source": "uncontended 3-episode LIBERO-Goal run (latency, memory); TFLOP as reported in the paper (5 denoising passes, 33-frame clip encode)"
+ },
+ "cosmos_policy_single_pass": {
+  "params_network": 1956413440,
+  "tflop_per_query": 7.516195979264,
+  "tflop_network": 6.846278139904,
+  "denoising_steps": 1,
+  "latency_mean_s": 0.12643733731750664,
+  "peak_gpu_mem_gib": 4.39281702041626,
+  "num_tokens": 1764,
+  "source": "uncontended 12-episode smoke run (latency, memory); FLOPs from bench.py"
+ }
+}

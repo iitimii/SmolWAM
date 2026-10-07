@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# weights, data and outputs (weights live on the Hugging Face Hub)
+*.pt
+*.pth
+*.safetensors
+*.npy
+*.h5
+/data/
+/runs/
+/release/
+/outputs/
+*.mp4
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,19 @@
+SmolWAM
+Copyright 2026 The SmolWAM Authors
+
+The code in this repository is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository contains code adapted from the following Apache-2.0 projects:
+
+  NVIDIA Cosmos Policy (https://github.com/NVlabs/cosmos-policy)
+    Copyright (c) NVIDIA CORPORATION & AFFILIATES.
+    The diffusion-transformer trunk in smolwam/nn/dit.py is adapted from cosmos_policy/_src/predict2/networks.
+
+  Wan2.1 (https://github.com/Wan-Video/Wan2.1)
+    Copyright (c) Alibaba, Inc. and its affiliates.
+    The VAE in smolwam/nn/wan_vae.py is adapted from the Wan2.1 VAE (via its Cosmos Policy wrapper).
+
+Model weights are not covered by this license. The SmolWAM weights (https://huggingface.co/timiiowolabi/SmolWAM)
+are derived from nvidia/Cosmos-Policy-LIBERO-Predict2-2B and are distributed under the NVIDIA One-Way Noncommercial
+License (NSCLv1): non-commercial research and educational use only. The Wan2.1 VAE weights are downloaded from
+Wan-AI/Wan2.1-T2V-1.3B under their own Apache-2.0 license.

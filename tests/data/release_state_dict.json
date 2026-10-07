@@ -1,0 +1,1533 @@
+{
+"gen_query": [
+5,
+196,
+2048
+],
+"eps_gen": [
+5,
+16,
+28,
+28
+],
+"blank": [
+16,
+28,
+28
+],
+"trunk.x_embedder.proj.1.weight": [
+2048,
+72
+],
+"trunk.pos_embedder.seq": [
+128
+],
+"trunk.pos_embedder.dim_spatial_range": [
+21
+],
+"trunk.pos_embedder.dim_temporal_range": [
+22
+],
+"trunk.t_embedder.1.linear_1.weight": [
+2048,
+2048
+],
+"trunk.t_embedder.1.linear_2.weight": [
+6144,
+2048
+],
+"trunk.blocks.0.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.0.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.0.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.0.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.0.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.0.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.0.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.0.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.0.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.0.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.0.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.0.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.0.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.0.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.0.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.1.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.1.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.1.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.1.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.1.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.1.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.1.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.1.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.1.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.1.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.1.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.1.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.1.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.1.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.1.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.2.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.2.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.2.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.2.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.2.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.2.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.2.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.2.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.2.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.2.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.2.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.2.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.2.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.2.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.2.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.3.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.3.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.3.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.3.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.3.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.3.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.3.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.3.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.3.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.3.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.3.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.3.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.3.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.3.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.3.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.4.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.4.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.4.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.4.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.4.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.4.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.4.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.4.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.4.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.4.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.4.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.4.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.4.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.4.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.4.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.5.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.5.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.5.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.5.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.5.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.5.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.5.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.5.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.5.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.5.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.5.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.5.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.5.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.5.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.5.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.6.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.6.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.6.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.6.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.6.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.6.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.6.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.6.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.6.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.6.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.6.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.6.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.6.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.6.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.6.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.7.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.7.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.7.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.7.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.7.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.7.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.7.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.7.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.7.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.7.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.7.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.7.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.7.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.7.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.7.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.8.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.8.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.8.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.8.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.8.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.8.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.8.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.8.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.8.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.8.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.8.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.8.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.8.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.8.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.8.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.9.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.9.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.9.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.9.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.9.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.9.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.9.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.9.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.9.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.9.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.9.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.9.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.9.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.9.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.9.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.10.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.10.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.10.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.10.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.10.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.10.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.10.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.10.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.10.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.10.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.10.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.10.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.10.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.10.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.10.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.blocks.11.self_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.self_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.11.self_attn.k_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.self_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.11.self_attn.v_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.self_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.cross_attn.q_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.cross_attn.q_norm.weight": [
+128
+],
+"trunk.blocks.11.cross_attn.k_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.11.cross_attn.k_norm.weight": [
+128
+],
+"trunk.blocks.11.cross_attn.v_proj.weight": [
+2048,
+1024
+],
+"trunk.blocks.11.cross_attn.output_proj.weight": [
+2048,
+2048
+],
+"trunk.blocks.11.mlp.layer1.weight": [
+8192,
+2048
+],
+"trunk.blocks.11.mlp.layer2.weight": [
+2048,
+8192
+],
+"trunk.blocks.11.adaln_modulation_self_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.11.adaln_modulation_self_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.11.adaln_modulation_cross_attn.1.weight": [
+256,
+2048
+],
+"trunk.blocks.11.adaln_modulation_cross_attn.2.weight": [
+6144,
+256
+],
+"trunk.blocks.11.adaln_modulation_mlp.1.weight": [
+256,
+2048
+],
+"trunk.blocks.11.adaln_modulation_mlp.2.weight": [
+6144,
+256
+],
+"trunk.final_layer.linear.weight": [
+64,
+2048
+],
+"trunk.final_layer.adaln_modulation.1.weight": [
+256,
+2048
+],
+"trunk.final_layer.adaln_modulation.2.weight": [
+4096,
+256
+],
+"trunk.t_embedding_norm.weight": [
+2048
+],
+"text_proj.0.weight": [
+768
+],
+"text_proj.0.bias": [
+768
+],
+"text_proj.1.weight": [
+1024,
+768
+],
+"text_proj.1.bias": [
+1024
+],
+"bidir.0.ln_q.weight": [
+1024
+],
+"bidir.0.ln_q.bias": [
+1024
+],
+"bidir.0.ln_kv.weight": [
+2048
+],
+"bidir.0.ln_kv.bias": [
+2048
+],
+"bidir.0.q.weight": [
+256,
+1024
+],
+"bidir.0.k.weight": [
+256,
+2048
+],
+"bidir.0.v.weight": [
+256,
+2048
+],
+"bidir.0.o.weight": [
+1024,
+256
+],
+"bidir.0.ln_f.weight": [
+1024
+],
+"bidir.0.ln_f.bias": [
+1024
+],
+"bidir.0.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.0.ffn.0.bias": [
+1024
+],
+"bidir.0.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.0.ffn.2.bias": [
+1024
+],
+"bidir.1.ln_q.weight": [
+1024
+],
+"bidir.1.ln_q.bias": [
+1024
+],
+"bidir.1.ln_kv.weight": [
+2048
+],
+"bidir.1.ln_kv.bias": [
+2048
+],
+"bidir.1.q.weight": [
+256,
+1024
+],
+"bidir.1.k.weight": [
+256,
+2048
+],
+"bidir.1.v.weight": [
+256,
+2048
+],
+"bidir.1.o.weight": [
+1024,
+256
+],
+"bidir.1.ln_f.weight": [
+1024
+],
+"bidir.1.ln_f.bias": [
+1024
+],
+"bidir.1.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.1.ffn.0.bias": [
+1024
+],
+"bidir.1.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.1.ffn.2.bias": [
+1024
+],
+"bidir.2.ln_q.weight": [
+1024
+],
+"bidir.2.ln_q.bias": [
+1024
+],
+"bidir.2.ln_kv.weight": [
+2048
+],
+"bidir.2.ln_kv.bias": [
+2048
+],
+"bidir.2.q.weight": [
+256,
+1024
+],
+"bidir.2.k.weight": [
+256,
+2048
+],
+"bidir.2.v.weight": [
+256,
+2048
+],
+"bidir.2.o.weight": [
+1024,
+256
+],
+"bidir.2.ln_f.weight": [
+1024
+],
+"bidir.2.ln_f.bias": [
+1024
+],
+"bidir.2.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.2.ffn.0.bias": [
+1024
+],
+"bidir.2.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.2.ffn.2.bias": [
+1024
+],
+"bidir.3.ln_q.weight": [
+1024
+],
+"bidir.3.ln_q.bias": [
+1024
+],
+"bidir.3.ln_kv.weight": [
+2048
+],
+"bidir.3.ln_kv.bias": [
+2048
+],
+"bidir.3.q.weight": [
+256,
+1024
+],
+"bidir.3.k.weight": [
+256,
+2048
+],
+"bidir.3.v.weight": [
+256,
+2048
+],
+"bidir.3.o.weight": [
+1024,
+256
+],
+"bidir.3.ln_f.weight": [
+1024
+],
+"bidir.3.ln_f.bias": [
+1024
+],
+"bidir.3.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.3.ffn.0.bias": [
+1024
+],
+"bidir.3.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.3.ffn.2.bias": [
+1024
+],
+"bidir.4.ln_q.weight": [
+1024
+],
+"bidir.4.ln_q.bias": [
+1024
+],
+"bidir.4.ln_kv.weight": [
+2048
+],
+"bidir.4.ln_kv.bias": [
+2048
+],
+"bidir.4.q.weight": [
+256,
+1024
+],
+"bidir.4.k.weight": [
+256,
+2048
+],
+"bidir.4.v.weight": [
+256,
+2048
+],
+"bidir.4.o.weight": [
+1024,
+256
+],
+"bidir.4.ln_f.weight": [
+1024
+],
+"bidir.4.ln_f.bias": [
+1024
+],
+"bidir.4.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.4.ffn.0.bias": [
+1024
+],
+"bidir.4.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.4.ffn.2.bias": [
+1024
+],
+"bidir.5.ln_q.weight": [
+1024
+],
+"bidir.5.ln_q.bias": [
+1024
+],
+"bidir.5.ln_kv.weight": [
+2048
+],
+"bidir.5.ln_kv.bias": [
+2048
+],
+"bidir.5.q.weight": [
+256,
+1024
+],
+"bidir.5.k.weight": [
+256,
+2048
+],
+"bidir.5.v.weight": [
+256,
+2048
+],
+"bidir.5.o.weight": [
+1024,
+256
+],
+"bidir.5.ln_f.weight": [
+1024
+],
+"bidir.5.ln_f.bias": [
+1024
+],
+"bidir.5.ffn.0.weight": [
+1024,
+1024
+],
+"bidir.5.ffn.0.bias": [
+1024
+],
+"bidir.5.ffn.2.weight": [
+1024,
+1024
+],
+"bidir.5.ffn.2.bias": [
+1024
+],
+"state_mlp.0.weight": [
+2048,
+9
+],
+"state_mlp.0.bias": [
+2048
+],
+"state_mlp.2.weight": [
+2048,
+2048
+],
+"state_mlp.2.bias": [
+2048
+],
+"adapter.scale": [
+2,
+16,
+1,
+1
+],
+"adapter.shift": [
+2,
+16,
+1,
+1
+],
+"adapter.cam_emb": [
+2,
+96,
+1,
+1
+],
+"adapter.inp.weight": [
+96,
+16,
+3,
+3
+],
+"adapter.inp.bias": [
+96
+],
+"adapter.blocks.0.0.weight": [
+96
+],
+"adapter.blocks.0.0.bias": [
+96
+],
+"adapter.blocks.0.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.0.2.bias": [
+96
+],
+"adapter.blocks.0.3.weight": [
+96
+],
+"adapter.blocks.0.3.bias": [
+96
+],
+"adapter.blocks.0.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.0.5.bias": [
+96
+],
+"adapter.blocks.1.0.weight": [
+96
+],
+"adapter.blocks.1.0.bias": [
+96
+],
+"adapter.blocks.1.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.1.2.bias": [
+96
+],
+"adapter.blocks.1.3.weight": [
+96
+],
+"adapter.blocks.1.3.bias": [
+96
+],
+"adapter.blocks.1.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.1.5.bias": [
+96
+],
+"adapter.blocks.2.0.weight": [
+96
+],
+"adapter.blocks.2.0.bias": [
+96
+],
+"adapter.blocks.2.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.2.2.bias": [
+96
+],
+"adapter.blocks.2.3.weight": [
+96
+],
+"adapter.blocks.2.3.bias": [
+96
+],
+"adapter.blocks.2.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter.blocks.2.5.bias": [
+96
+],
+"adapter.out.weight": [
+16,
+96,
+3,
+3
+],
+"adapter.out.bias": [
+16
+],
+"adapter_inv.scale": [
+2,
+16,
+1,
+1
+],
+"adapter_inv.shift": [
+2,
+16,
+1,
+1
+],
+"adapter_inv.cam_emb": [
+2,
+96,
+1,
+1
+],
+"adapter_inv.inp.weight": [
+96,
+16,
+3,
+3
+],
+"adapter_inv.inp.bias": [
+96
+],
+"adapter_inv.blocks.0.0.weight": [
+96
+],
+"adapter_inv.blocks.0.0.bias": [
+96
+],
+"adapter_inv.blocks.0.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.0.2.bias": [
+96
+],
+"adapter_inv.blocks.0.3.weight": [
+96
+],
+"adapter_inv.blocks.0.3.bias": [
+96
+],
+"adapter_inv.blocks.0.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.0.5.bias": [
+96
+],
+"adapter_inv.blocks.1.0.weight": [
+96
+],
+"adapter_inv.blocks.1.0.bias": [
+96
+],
+"adapter_inv.blocks.1.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.1.2.bias": [
+96
+],
+"adapter_inv.blocks.1.3.weight": [
+96
+],
+"adapter_inv.blocks.1.3.bias": [
+96
+],
+"adapter_inv.blocks.1.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.1.5.bias": [
+96
+],
+"adapter_inv.blocks.2.0.weight": [
+96
+],
+"adapter_inv.blocks.2.0.bias": [
+96
+],
+"adapter_inv.blocks.2.2.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.2.2.bias": [
+96
+],
+"adapter_inv.blocks.2.3.weight": [
+96
+],
+"adapter_inv.blocks.2.3.bias": [
+96
+],
+"adapter_inv.blocks.2.5.weight": [
+96,
+96,
+3,
+3
+],
+"adapter_inv.blocks.2.5.bias": [
+96
+],
+"adapter_inv.out.weight": [
+16,
+96,
+3,
+3
+],
+"adapter_inv.out.bias": [
+16
+]
+}
