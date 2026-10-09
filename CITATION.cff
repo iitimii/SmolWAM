@@ -36,6 +36,6 @@ preferred-citation:
       family-names: Adelakun
     - given-names: Ayotomiwa
       family-names: Oyewumi
-  collection-title: "NeurIPS 2026 Workshop on Robotics World Modeling"
+  collection-title: "NeurIPS 2026 Workshop on Robot Learning with World Models: Capabilities, Frontiers, and Challenges"
   year: 2026
   url: "https://smolwam.vercel.app"

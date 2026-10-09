@@ -27,14 +27,16 @@
  },
  "cosmos_policy": {
   "params_network": 1956413440,
-  "tflop_per_query": 31.0,
+  "tflop_per_query": 42.606648197119995,
+  "tflop_network": 34.23139069952,
+  "tflop_vae_encode": 8.3752574976,
   "denoising_steps": 5,
   "latency_mean_s": 0.6243505501428055,
   "latency_median_s": 0.5884775780004929,
   "peak_gpu_mem_gib": 7.546159744262695,
   "peak_rss_gib": 8.583759307861328,
   "num_tokens": 1764,
-  "source": "uncontended 3-episode LIBERO-Goal run (latency, memory); TFLOP as reported in the paper (5 denoising passes, 33-frame clip encode)"
+  "source": "uncontended 3-episode LIBERO-Goal run (latency, memory); TFLOP: 5 network passes at the single-pass pipeline's counted 6.85 plus the counted 33-frame clip VAE encode (torch FlopCounterMode, attention included)"
  },
  "cosmos_policy_single_pass": {
   "params_network": 1956413440,

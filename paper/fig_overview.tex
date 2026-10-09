@@ -1,0 +1,72 @@
+% Figure 1: deriving SmolWAM from Cosmos Policy (interfaces, latent-frame layout, depth, steps, cost).
+\begin{tikzpicture}[
+  x=1cm, y=1cm, font=\scriptsize,
+  slot/.style={draw=black!55, line width=0.3pt, minimum height=0.46cm, minimum width=0.68cm,
+               inner sep=0pt, anchor=west},
+  sblank/.style={slot, fill=black!7},
+  svec/.style={slot, fill=cVec},
+  simg/.style={slot, fill=cImg},
+  sfut/.style={slot, fill=cFut},
+  sact/.style={slot, fill=cAct},
+  ghost/.style={slot, draw=black!30, dash pattern=on 1.1pt off 1.1pt, fill=white, text=black!35},
+  brace/.style={decorate, decoration={brace, amplitude=2.5pt, mirror}, line width=0.35pt},
+  inp/.style={anchor=west, align=left, inner sep=0pt},
+  hdr/.style={text=black!55, inner sep=0pt},
+]
+\def\x#1{2.75+0.70*#1}   % left edge of latent-frame slot #1 (0..8)
+\def\d#1{9.40+0.075*#1}  % left edge of DiT block #1 (0..27)
+
+% column headers
+\node[hdr, anchor=west] at (0,3.02) {encoders};
+\node[hdr] at ({\x4+0.34},3.02) {latent-frame sequence (tokens $\propto$ width)};
+\node[hdr] at (10.45,3.02) {DiT blocks};
+\node[hdr] at (11.95,3.02) {steps};
+\node[hdr, anchor=west] at (12.55,3.02) {cost / chunk};
+
+% ---------------- Row 1: Cosmos Policy ----------------
+\node[inp] at (0,2.72) {\textbf{Cosmos Policy} (teacher)};
+\node[inp] at (0,2.22) {33-frame clip VAE\\ T5-XXL (4.8B)};
+\node[sblank] at ({\x0},2.22) {$\varnothing$};
+\node[svec]   at ({\x1},2.22) {$s$};
+\node[simg]   at ({\x2},2.22) {$o^{w}$};
+\node[simg]   at ({\x3},2.22) {$o^{p}$};
+\node[sact]   at ({\x4},2.22) {$a$};
+\node[svec]   at ({\x5},2.22) {$s'$};
+\node[sfut]   at ({\x6},2.22) {$o'^{w}$};
+\node[sfut]   at ({\x7},2.22) {$o'^{p}$};
+\node[svec]   at ({\x8},2.22) {$V$};
+\node[anchor=south east, inner sep=1pt] at ({\x8+0.68},2.46) {1,764 tokens};
+\foreach \b in {0,...,27} { \fill[black!45] ({\d\b},1.99) rectangle ++(0.058,0.46); }
+\node[anchor=north, inner sep=1pt] at (10.45,1.98) {1.96B};
+\node at (11.95,2.22) {\small 5};
+\node[inp] at (12.55,2.22) {624\,ms\\ 42.6\,TFLOP\\ 7.55\,GiB};
+
+% ---------------- Row 2: SmolWAM ----------------
+\node[inp] at (0,1.20) {\textbf{SmolWAM} (ours)};
+\node[inp] at (0,0.70) {1-frame VAE + adapter\\ BERT-base (cached)};
+\node[sblank] at ({\x0},0.70) {$\varnothing$};
+\node[ghost]  at ({\x1},0.70) {$s$};
+\node[simg]   at ({\x2},0.70) {$o^{w}$};
+\node[simg]   at ({\x3},0.70) {$o^{p}$};
+\node[ghost]  at ({\x4},0.70) {};
+\fill[cAct, draw=black!55, line width=0.3pt] ({\x4},0.47) rectangle ++(0.10,0.46);
+\node[anchor=west, inner sep=0pt] at ({\x4+0.15},0.70) {$a{+}s$};
+\node[ghost]  at ({\x5},0.70) {$s'$};
+\node[sfut]   at ({\x6},0.70) {$o'^{w}$};
+\node[sfut]   at ({\x7},0.70) {$o'^{p}$};
+\node[ghost]  at ({\x8},0.70) {$V$};
+\draw[brace] ({\x0+0.02},0.42) -- ({\x3+0.66},0.42) node[midway, below=2pt] {clean observation};
+\draw[brace] ({\x4+0.02},0.42) -- ({\x7+0.66},0.42) node[midway, below=2pt, align=center] {28 action queries + future latents};
+\node[anchor=south east, inner sep=1pt] at ({\x8+0.68},0.94) {1,008 tokens};
+\foreach \b in {0,...,27} {
+  \pgfmathtruncatemacro{\keep}{(\b<3) || (\b>18) ? 1 : 0}
+  \ifnum\keep=1
+    \fill[cKeep] ({\d\b},0.47) rectangle ++(0.058,0.46);
+  \else
+    \draw[black!28, line width=0.3pt] ({\d\b},0.47) rectangle ++(0.058,0.46);
+  \fi
+}
+\node[anchor=north, inner sep=1pt] at (10.45,0.46) {0.88B};
+\node at (11.95,0.70) {\small\textbf{1}};
+\node[inp] at (12.55,0.70) {\textbf{57\,ms}\\ \textbf{2.30\,TFLOP}\\ \textbf{2.36\,GiB}};
+\end{tikzpicture}

@@ -1,33 +1,45 @@
-% SmolWAM, camera-ready for the NeurIPS 2026 Robotics World Modeling Workshop.
-% Build: tectonic smolwam.tex
 \documentclass{article}
 
-\PassOptionsToPackage{numbers, sort&compress}{natbib}
+% NeurIPS 2026 workshop camera-ready ([final] prints the author block and the workshop footer).
+% Build: tectonic smolwam.tex
+\PassOptionsToPackage{numbers,sort&compress}{natbib}
 \usepackage[dblblindworkshop, final]{neurips_2026}
-\workshoptitle{Robotics World Modeling}
+\workshoptitle{Robot Learning with World Models: Capabilities, Frontiers, and Challenges}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor}
-\usepackage[colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black]{hyperref}
+\usepackage{float}
+\usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{nicefrac}
 \usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{xspace}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.pathreplacing,positioning}
 
-\newcommand{\smol}{SmolWAM}
-\hypersetup{pdftitle={SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices}, pdfauthor={Timi Owolabi, Hikmah Olawore, Frances Adelakun, Ayotomiwa Oyewumi}}
+\definecolor{cImg}{HTML}{CFDFF3}
+\definecolor{cFut}{HTML}{E2D5F2}
+\definecolor{cVec}{HTML}{F7E1C4}
+\definecolor{cAct}{HTML}{EFA9A5}
+\definecolor{cKeep}{HTML}{3B5B92}
 
-\title{SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices}
+\newcommand{\smol}{SmolWAM\xspace}
+\newcommand{\smolla}{SmolWAM-LA\xspace}
+\newcommand{\cosmos}{Cosmos Policy\xspace}
+
+\title{SmolWAM: A Latent World-Action Model for\\Robotic Manipulation on Edge Devices}
 
 \author{%
-  Timi Owolabi \quad Hikmah Olawore \quad Frances Adelakun \quad Ayotomiwa Oyewumi \\
-  ML Collective
+  Timi Owolabi \quad Hikmah Olawore \quad Frances Adelakun \quad Ayotomiwa Oyewumi\\
+  ML Collective\\
+  \texttt{\{timiiowolabi, olaworehikmah, francesadelakun127, ayot.oyewumi\}@gmail.com}
 }
 
 \begin{document}
@@ -35,233 +47,246 @@
 \maketitle
 
 \begin{abstract}
-World-action models (WAMs) predict a robot's actions together with the observations those actions will produce.
-However, the strongest models rely on video diffusion transformers that are far too computationally expensive for
-resource-constrained edge devices. We present \smol, a latent WAM that we derive from the 2B-parameter Cosmos Policy by
-keeping its pretrained trunk and rebuilding its inference interface: single-frame visual latents, cached text features
-that preserve the trunk's attention sinks, 12 of 28 transformer blocks, and 1,008 tokens from which actions and future
-visual latents are read out in one rectified-flow step. Trained in 3.6 GPU-hours, \smol\ succeeds in 95.5\% of 400
-LIBERO episodes at 57\,ms, 2.3\,TFLOP, and 2.4\,GiB of GPU memory per 16-action chunk, 11$\times$ faster and
-3.2$\times$ leaner than its teacher, and its world head still forecasts scene motion.
+World-action models (WAMs) predict a robot's actions together with the observations those actions will produce. However, the strongest models rely on video diffusion transformers that are far too computationally expensive for resource-constrained edge devices.
+We present \smol, a latent WAM that we derive from the 2B-parameter \cosmos by keeping its pretrained trunk and rebuilding its inference interface: single-frame visual latents, cached text features that preserve the trunk's attention sinks, 12 of 28 transformer blocks, and 1,008 tokens from which actions and future visual latents are read out in one rectified-flow step.
+Trained in 3.6 GPU-hours, \smol succeeds in 95.5\% of 400 LIBERO episodes at 57\,ms and 2.3\,TFLOP per 16-action chunk with 2.4\,GiB of GPU memory, 11$\times$ faster than its teacher with 18.5$\times$ fewer FLOPs and 3.2$\times$ less memory, and its world head still forecasts scene motion.
+Along the way, we find that zero-padded text tokens are attention sinks, that individually removable blocks are jointly fatal, and that latent-action cascades and visual-reward fine-tuning degrade control.
+Code: \href{https://github.com/iitimii/SmolWAM}{\texttt{github.com/iitimii/SmolWAM}}; project page: \href{https://smolwam.vercel.app/}{\texttt{smolwam.vercel.app}}.
 \end{abstract}
 
+%===============================================================================
 \section{Introduction}
+\label{sec:intro}
 
-World-action models (WAMs) predict a robot's next actions together with the observations they should
-produce~\citep{kim2026cosmospolicy,ye2026wam,lu2026survey}. Cosmos Policy~\citep{kim2026cosmospolicy} builds one from
-the Cosmos-Predict2 video model~\citep{nvidia2025cosmos} by treating actions, future observations, and values as latent
-frames of a single denoising sequence, and reaches 98.5\% average success on LIBERO~\citep{liu2023libero}. Its
-inference stack, however, was built for video generation: a 4.8B-parameter T5-XXL text encoder~\citep{raffel2020t5}, a
-VAE that encodes a 33-frame clip per query, and five denoising passes of a 2B-parameter transformer over 1,764 tokens,
-which cost 624\,ms, 31\,TFLOP, and 7.55\,GiB per 16-action chunk on an A100 even with cached text features.
+World-action models (WAMs) predict a robot's next actions together with the observations they should produce~\citep{kim2026cosmospolicy,ye2026dreamzero,lu2026wamsurvey}.
+\cosmos~\citep{kim2026cosmospolicy} builds one from the Cosmos-Predict2 video model~\citep{nvidia2025cosmos} by treating actions, future observations, and values as latent frames of a single denoising sequence, and reaches 98.5\% success on LIBERO~\citep{liu2023libero}.
+Its inference stack, however, was built for video generation: a 4.8B-parameter T5-XXL text encoder~\citep{raffel2020t5}, a VAE that encodes a 33-frame clip per query, and five denoising steps of a 2B-parameter transformer over 1,764 tokens, which cost 624\,ms, 42.6\,TFLOP, and 7.55\,GiB per 16-action chunk on an A100 even with cached text features.
 
-Efficient policies usually give up the world model or the video prior: compact vision-language-action (VLA) models
-such as SmolVLA~\citep{shukor2025smolvla} and TurboVLA~\citep{xie2026turbovla} predict only actions, and
-Fast-WAM~\citep{yuan2026fastwam} skips future prediction at test time. We ask whether a strong pretrained WAM can itself
-be made small while still predicting the future.
+Efficient policies usually give up the world model or the video prior: compact vision-language-action (VLA) models such as SmolVLA~\citep{shukor2025smolvla} and TurboVLA~\citep{xie2026turbovla} predict only actions, and Fast-WAM~\citep{yuan2026fastwam} skips future prediction at test time.
+We ask whether a strong pretrained WAM can itself be made small while still predicting the future.
 
-We present \smol\ (Fig.~\ref{fig:overview}). Our premise is that much of the teacher's cost comes from an interface
-designed for video generation, not from what control requires. \smol\ reuses the trunk's weights, token positions, and
-rectified-flow readout; it encodes single frames through a small adapter, replaces T5-XXL with cached BERT
-features~\citep{devlin2019bert} padded to preserve the trunk's attention sinks, keeps 12 of 28 blocks, and reads actions
-from 28 state-conditioned queries. One forward pass returns a 16-step action chunk and the next visual latents of both
-cameras. Most changes break the trunk zero-shot, so we distill them with a curriculum that recovers from pruning before
-compaction.
+We present \smol (Fig.~\ref{fig:overview}).
+Our premise is that much of the teacher's cost comes from an interface designed for video generation, not from what control requires.
+\smol reuses the trunk's weights, token positions, and rectified-flow readout; it encodes single frames through a small adapter, replaces T5-XXL with cached BERT features~\citep{devlin2019bert} padded to preserve the trunk's attention sinks, keeps 12 of 28 blocks, and reads actions from 28 state-conditioned queries.
+Most changes break the trunk zero-shot, so a distillation curriculum recovers from pruning before compaction.
 
-We contribute (i) \smol, which retains 97\% of its teacher's success at 11$\times$ lower latency; (ii) a method, with a
-diagnostic behind each step, for deriving compact WAMs from pretrained video WAMs (Sec.~\ref{sec:method}); and
-(iii) findings showing that the compressed world head preserves motion forecasting, whereas adding latent-action
-cascades or visual-reward fine-tuning degrades control (Sec.~\ref{sec:experiments}).
+We contribute (i)~\smol, which retains 97\% of its teacher's success at 11$\times$ lower latency; (ii)~a method, with a diagnostic behind each step, for deriving compact WAMs from pretrained video WAMs (Sec.~\ref{sec:method}), including three pitfalls (attention-sink padding, jointly fatal blocks, and chunks that cannot be cut short); and (iii)~findings that the compressed world head preserves motion forecasting, whereas latent-action cascades or visual-reward fine-tuning degrade control (Sec.~\ref{sec:experiments}).
 
+%===============================================================================
+\section{Related Work}
+\label{sec:related}
+
+Generalist VLAs bring pretraining to control~\citep{brohan2023rt2,kim2024openvla,openx2024,octo2024,black2025pi0,pertsch2025fast}, often with diffusion~\citep{chi2023diffusionpolicy} or chunked~\citep{zhao2023act} action heads; OpenVLA-OFT~\citep{kim2025openvlaoft}, TinyVLA~\citep{wen2025tinyvla}, SmolVLA~\citep{shukor2025smolvla}, and TurboVLA~\citep{xie2026turbovla} speed them up; \smol borrows TurboVLA's principles but retains a world model.
+Latent world models learn dynamics in feature space~\citep{zhou2025dinowm,assran2025vjepa2,zheng2025flare,maes2026leworldmodel,gao2026fastleworldmodel}, and GR-1~\citep{wu2024gr1}, PAD~\citep{guo2024pad}, and WorldVLA~\citep{cen2025worldvla} generate future images and actions jointly.
+Recent WAMs build on video models~\citep{kim2026cosmospolicy,ye2026dreamzero} and add action evaluation~\citep{zhou2026tau0wm}, modalities~\citep{nvidia2026cosmos3}, object state~\citep{liu2026oawam}, geometry~\citep{lopetegui2026sawam}, or latent actions~\citep{chen2026abotm05}; Fast-WAM~\citep{yuan2026fastwam} drops future prediction at test time and Light-WAM~\citep{li2026lightwam} decodes actions from a smaller video backbone, whereas \smol reads future latents from its action pass.
+
+%===============================================================================
 \begin{figure}[t]
-  \centering
-  \includegraphics[width=\textwidth]{figs/fig1_overview.png}
-  \caption{\textbf{From Cosmos Policy to \smol.} Latent frames (width $\propto$ tokens), kept DiT blocks, denoising
-  steps, and cost per 16-action chunk on an A100. \smol\ drops the state and value frames (dashed), replaces the action
-  frame with 28 state-conditioned queries ($a{+}s$), and reads actions and future camera latents (its world head) from
-  one step.}
-  \label{fig:overview}
+\centering
+\resizebox{\textwidth}{!}{\input{fig_overview.tex}}
+\caption{\textbf{From \cosmos to \smol.} Latent frames (width $\propto$ tokens), kept DiT blocks, denoising steps, and cost per 16-action chunk on an A100. \smol drops the state and value frames (dashed), replaces the action frame with 28 state-conditioned queries ($a{+}s$), and reads actions and future camera latents (its world head) from one step.}
+\label{fig:overview}
 \end{figure}
 
-\section{Related Work}
-
-\paragraph{Efficient robot policies.} Generalist VLAs bring pretraining to
-control~\citep{brohan2023rt2,kim2024openvla,oneill2024oxe,ghosh2024octo,black2025pi0,pertsch2025fast}, often with
-diffusion~\citep{chi2023diffusionpolicy} or chunked~\citep{zhao2023aloha} action heads;
-OpenVLA-OFT~\citep{kim2025oft}, TinyVLA~\citep{wen2025tinyvla}, SmolVLA~\citep{shukor2025smolvla}, and
-TurboVLA~\citep{xie2026turbovla} speed them up; \smol\ borrows TurboVLA's principles but retains a world model.
-
-\paragraph{Predictive models for control.} Latent world models learn dynamics in feature
-space~\citep{zhou2025dinowm,assran2025vjepa2,zheng2025flare,maes2026leworldmodel,gao2026fastlewm}, and
-GR-1~\citep{wu2024gr1}, PAD~\citep{guo2024pad}, and WorldVLA~\citep{cen2025worldvla} generate future images and actions
-jointly. Recent WAMs build on video models~\citep{kim2026cosmospolicy,ye2026wam} and add action
-evaluation~\citep{zhou2026tau0wm}, modalities~\citep{nvidia2026cosmos3}, object state~\citep{liu2026oawam},
-geometry~\citep{lopetegui2026spatially}, or latent actions~\citep{chen2026abot}; Fast-WAM~\citep{yuan2026fastwam} drops
-future prediction at test time and Light-WAM~\citep{li2026lightwam} decodes actions from a smaller video backbone,
-whereas \smol\ reads future latents out of the pass that produces its actions.
-
-\section{\smol}
+\section{SmolWAM}
 \label{sec:method}
 
 \subsection{Teacher: Cosmos Policy}
 
-On LIBERO, the video diffusion transformer (DiT)~\citep{peebles2023dit} of Cosmos Policy (28 blocks, 1.96B parameters)
-denoises nine latent frames of $14{\times}14{=}196$ tokens (Fig.~\ref{fig:overview}): a blank frame, the robot state
-$s$, the wrist and third-person camera latents $o^w$ and $o^p$, a chunk $a$ of $H{=}16$ actions, and, at time $t{+}H$,
-the state $s'$, the camera latents $o'^w$ and $o'^p$, and a value $V$. Images are encoded by the Wan2.1
-VAE~\citep{wan2025} from 33-frame clips, and the instruction enters through cross-attention to 512 T5-XXL embeddings.
-The model is a rectified flow~\citep{liu2023rectifiedflow,lipman2023flowmatching}: for
-$x_\tau = (1-\tau)\,x_0 + \tau\,\epsilon$ it predicts the velocity $v_\theta(x_\tau,\tau) \approx \epsilon - x_0$,
-which gives a closed-form clean estimate
-\begin{equation}
-  \hat{x}_0 = x_\tau - \tau\, v_\theta(x_\tau, \tau).
-  \label{eq:x0}
-\end{equation}
-Generated frames start at $\tau_{\max} \approx 0.988$ ($\sigma_{\max}{=}80$); the released pipeline takes five steps.
+On LIBERO, the video diffusion transformer (DiT)~\citep{peebles2023dit} of \cosmos (28 blocks, 1.96B parameters) denoises nine latent frames of $14{\times}14{=}196$ tokens (Fig.~\ref{fig:overview}): a blank frame, the robot state $s$, the wrist and third-person camera latents $o^{w}$ and $o^{p}$, a chunk $a$ of $H{=}16$ actions, and, at time $t{+}H$, the state $s'$, the camera latents $o'^{w}$ and $o'^{p}$, and a value $V$.
+Images are encoded by the Wan2.1 VAE~\citep{wan2025} from 33-frame clips, and the instruction enters through cross-attention to 512 T5-XXL embeddings.
+The model is a rectified flow~\citep{liu2023rectifiedflow,lipman2023flowmatching}: for $x_\tau=(1-\tau)\,x_0+\tau\,\epsilon$ it predicts the velocity $v_\theta(x_\tau,\tau)\approx\epsilon-x_0$, which gives the closed-form clean estimate $\hat{x}_0 = x_\tau - \tau\, v_\theta(x_\tau,\tau)$.
+Generated frames start at $\tau_{\max}\approx0.988$ ($\sigma_{\max}{=}80$); the released pipeline takes five steps.
 
-\subsection{Deriving \smol\ from the teacher}
+\subsection{Deriving SmolWAM from the teacher}
+\label{sec:derivation}
 
-\paragraph{Single-frame latents.} \smol\ encodes each camera image once, as a single frame, with the Wan2.1 encoder
-(54M parameters). Such latents raise the teacher's action error (L1) from 0.0089 to 0.038; a 0.5M-parameter adapter maps
-them to clip-mode latents and restores it to 0.0092.
+\textbf{Single-frame latents.}
+\smol encodes each camera image once, as a single frame, with the Wan2.1 encoder (54M parameters).
+Such latents raise the teacher's action error (normalized L1 of its one-step chunk to the demonstration) from 0.0089 to 0.038; a 0.5M-parameter adapter maps them to clip-mode latents and restores it to 0.0092.
 
-\paragraph{Cached text that keeps the attention sinks.} We replace T5-XXL with cached BERT-base~\citep{devlin2019bert}
-features of the instruction, projected to the 1024-dimensional context. The trunk's cross-attention has bias-free key
-and value projections, so T5's ${\sim}500$ zero-padded positions contribute zero logits and values and act as an
-attention sink~\citep{xiao2024attentionsinks}: truncating the context to 32 or 128 positions drops the teacher to 0/5
-closed-loop successes, and restoring the removed softmax mass analytically returns it to 5/5. \smol\ thus zero-pads the
-BERT features to 512 positions; six zero-initialized vision-to-language layers (width 256), as in
-TurboVLA~\citep{xie2026turbovla}, let the instruction attend to the images.
+\textbf{Cached text that keeps the attention sinks.}
+We replace T5-XXL with cached BERT-base~\citep{devlin2019bert} features of the instruction, projected to the context width.
+The trunk's cross-attention has bias-free key and value projections, so T5's ${\sim}500$ zero-padded positions contribute zero logits and values and act as an attention sink~\citep{xiao2024streamingllm}: truncating the context to 32 or 128 positions drops the teacher to 0/5 closed-loop successes, and restoring the removed softmax mass analytically returns it to 5/5, matching the padded attention to $6{\times}10^{-8}$.
+\smol thus zero-pads the BERT features to 512 positions; six zero-initialized vision-to-language layers from TurboVLA~\citep{xie2026turbovla} let the text attend to the images.
 
-\paragraph{Boundary-preserving pruning.} Block influence $1 - \cos(h_{\mathrm{in}}, h_{\mathrm{out}})$~\citep{men2025shortgpt}
-is highest for blocks 0, 1, and 25--27, while blocks 3--22 are individually close to the identity. Zero-shot screens
-(5 episodes each) show that removals do not compose: skipping block 1, 26, or 27 fails every episode, skipping block 7,
-14, or 20 alone fails none, and skipping four near-identity blocks (12--15) together fails all. \smol\ keeps blocks 0--2
-and 19--27 (0.88B parameters).
+\textbf{Boundary-preserving pruning.}
+Block influence $1-\cos(h_{\text{in}},h_{\text{out}})$~\citep{men2025shortgpt} is highest for blocks 0, 1, and 25--27, while blocks 3--22 are individually close to the identity.
+Zero-shot screens (5 episodes each) show that removals do not compose: skipping block 1, 26, or 27 fails every episode, skipping block 7, 14, or 20 alone fails none, and skipping four near-identity blocks (12--15) together fails all.
+\smol keeps blocks 0--2 and 19--27 (0.85B parameters).
 
-\paragraph{State-conditioned action queries.} A zero-initialized MLP adds the robot state to 28 action queries that
-replace the 196-token action frame at its original positions. Beyond these queries we keep only the blank and image
-frames (1,008 tokens). Zero-shot, dropping the future-state and value frames barely changes the action error (0.009 to
-${\le}0.019$), but dropping the blank (0.30) or state (0.058) frame or compacting the vector frames to 28 tokens (0.21)
-does, so the layout is learned.
+\textbf{State-conditioned action queries.}
+A zero-initialized MLP adds the robot state to 28 action queries that replace the 196-token action frame at its original positions.
+Beyond these queries we keep only the blank and image frames (1,008 tokens).
+Zero-shot, dropping the future-state and value frames barely changes the action error (0.009 to ${\le}0.019$), but dropping the blank (0.30) or state (0.058) frame or compacting the vector frames to 28 tokens (0.21) does, so the layout is learned.
 
-\paragraph{One-pass readout.} \smol\ evaluates its trunk once at $\tau_{\max}$ with fixed noise and reads the action
-chunk and future latents from Eq.~\eqref{eq:x0}; the teacher solves all 60 screening episodes in one step
-(Table~\ref{tab:main}). The future latents form \smol's world head, supervised in training and never decoded at
-deployment.
+\textbf{One-pass readout.}
+\smol evaluates its trunk once at $\tau_{\max}$ with fixed noise and reads the action chunk and future latents from $\hat{x}_0$, so its actions never condition on a denoised future; as Fast-WAM~\citep{yuan2026fastwam} also finds, acting does not need one, and the teacher solves all 60 screening episodes in one step (Table~\ref{tab:main}).
+The future latents form its world head, supervised in training and never decoded.
 
 \subsection{Distillation with a layout curriculum}
+\label{sec:training}
 
-We train on 68,830 observations sampled every fourth step from the 1,700 successful LIBERO demonstrations released with
-Cosmos Policy, using the teacher's one-step predictions of the action chunk and future latents, $a^{T}$ and $z^{T}$,
-cached at fixed noise (66\,min on one A100). As in pruning and distillation of language
-models~\citep{muralidharan2024minitron,hinton2015distilling}, the loss
-$\|\hat{a} - a\|_1 + \|\hat{a} - a^{T}\|_1 + \|\hat{z} - z\|_1 + \|\hat{z} - z^{T}\|_1$ matches the student's
-one-step estimates to both the demonstrations and the teacher, plus 0.1-weighted terms for the state and value frames
-while they exist. Pruning and compaction are separate distribution shifts, so the student, initialized from the kept
-teacher blocks, trains in the teacher's 1,764-token layout for the first 1,000 of 5,000 steps and in the compact layout
-afterward (AdamW; learning rate $2{\times}10^{-5}$ for inherited and $10^{-4}$ for new weights; batch 32; bf16) in
-3.6 hours on one A100.
+We train on 68,830 observations sampled every fourth step from the 1,700 successful LIBERO demonstrations released with \cosmos, using the teacher's one-step predictions of the action chunk and future latents, $a^{\mathcal{T}}$ and $z^{\mathcal{T}}$, cached at fixed noise (66 min on one A100).
+As in pruning and distillation of language models~\citep{muralidharan2024minitron,hinton2015distilling}, the loss $\|\hat a - a\|_1 + \|\hat a - a^{\mathcal{T}}\|_1 + \|\hat z - z\|_1 + \|\hat z - z^{\mathcal{T}}\|_1$ matches the student's one-step estimates to both the demonstrations and the teacher, plus 0.1-weighted terms for the state and value frames while they exist.
+Pruning and compaction are separate distribution shifts, so the student, initialized from the kept teacher blocks, trains in the teacher's 1,764-token layout for the first 1,000 of 5,000 steps and in the compact layout afterward (AdamW; learning rate $2{\times}10^{-5}$ for inherited and $10^{-4}$ for new weights; batch 32; bf16) in 3.6\,h on one A100 (App.~\ref{app:training}).
 
+%===============================================================================
 \section{Experiments}
 \label{sec:experiments}
 
-We ask (Q1) how much of the teacher's success \smol\ retains, (Q2) where its savings come from, (Q3) whether it remains
-a world model, and (Q4) whether richer WAM components help.
+We ask \textbf{(Q1)} how much of the teacher's success \smol retains, \textbf{(Q2)} where its savings come from, \textbf{(Q3)} whether it remains a world model, and \textbf{(Q4)} whether richer WAM components help.
 
-\paragraph{Setup.} LIBERO~\citep{liu2023libero} has four suites of ten tasks; we use the teacher's observation pipeline
-(wrist and third-person images at 224\,px, proprioception, 16-action chunks executed open loop), and 10 trials per task
-(400 episodes). A 60-episode screening set (3 tasks per suite, 5 trials each) includes the tasks an earlier pruned
-student failed most, so it scores below the full protocol. Latency is the wall-clock time from observation to action
-chunk on one A100-SXM4-40GB (batch 1, bf16), including preprocessing and VAE encoding, with text features cached for
-every model.
-
-\paragraph{Q1: \smol\ retains most of the teacher's success.} \smol\ succeeds in 382/400 episodes (95.5\%; 95\% Wilson
-interval 93.0--97.1) against the teacher's 393/400 (98.2\%; 96.4--99.1). We detect no difference on Spatial and Object;
-the deficit lies in the multi-step Goal (94 vs.\ 99) and Long (89 vs.\ 97) suites, where failed rollouts usually
-complete the first subgoal and stall on the second. An earlier student that removed only 8 blocks and recovered with
-LoRA~\citep{hu2022lora} distillation on 414 teacher observations reached 87.5\%; \smol\ differs in distillation
-coverage, full fine-tuning, and the learned layout, effects we have not separated. Training 7,500 more steps does not
-help (94.2\%), and an 8-block variant falls to 83.3\% on the screening set.
+\textbf{Setup.}
+LIBERO~\citep{liu2023libero} has four suites of ten tasks; we use the teacher's observation pipeline (wrist and third-person images at 224\,px, proprioception, 16-action chunks executed open loop), seed 195, and 10 trials per task (400 episodes).
+A 60-episode screening set (3 tasks per suite, 5 trials each) includes the tasks an earlier pruned student failed most, so it scores below the full protocol.
+Latency is the wall-clock time from observation to action chunk on one A100-SXM4-40GB (batch 1, bf16), including preprocessing and VAE encoding, with text features cached for every model; FLOPs are counted with PyTorch's \texttt{FlopCounterMode}, attention included.
 
 \begin{table}[t]
-  \caption{\textbf{LIBERO success and inference cost.} Screen: 60-episode screening set; suites and Full: 400 episodes.
-  Cost per 16-action chunk on one A100 (batch 1, bf16); TFLOP counts trunk and VAE encoder, GiB is peak GPU memory.
-  \smol\ succeeds in 95.5\% of episodes at 11$\times$ lower latency than its teacher. $^\dagger$Earlier evaluation
-  pipeline (Cosmos Policy reports 98.5\%~\citep{kim2026cosmospolicy}). $^\ddagger$Shared GPU. $^\S$Simulated: INT8
-  weights, bf16 kernels.}
-  \label{tab:main}
-  \centering
-  \small
-  \setlength{\tabcolsep}{2.6pt}
-  \begin{tabular}{@{}lrrrrrrrrrr@{}}
-    \toprule
-    & \multicolumn{4}{c}{Inference cost} & \multicolumn{6}{c}{Success rate (\%)} \\
-    \cmidrule(lr){2-5} \cmidrule(l){6-11}
-    Model & Trunk & TFLOP & ms & GiB & Screen & Spatial & Object & Goal & Long & Full \\
-    \midrule
-    Cosmos Policy (5 steps)         & 1.96B & 31.0 & 624 & 7.55 & 96.7  & 97.0 & 100.0 & 99.0 & 97.0 & 98.2$^\dagger$ \\
-    Cosmos Policy (1 step, 1 frame) & 1.96B & 7.52 & 126 & 4.39 & 100.0 & --   & --    & --   & --   & -- \\
-    Pruned + LoRA distillation      & 1.40B & --   & --  & --   & --    & 83.0 & 100.0 & 82.0 & 85.0 & 87.5$^\dagger$ \\
-    \midrule
-    \textbf{\smol}                  & \textbf{0.88B} & \textbf{2.30} & \textbf{57} & \textbf{2.36} & 93.3 & 99.0 & 100.0 & 94.0 & 89.0 & \textbf{95.5} \\
-    \quad + 7.5k training steps     & 0.88B & 2.30 & 60  & 2.36 & 93.3  & 94.0 & 100.0 & 94.0 & 89.0 & 94.2 \\
-    \quad INT8 weights$^\S$         & 0.88B & 2.30 & 65$^\ddagger$ & 2.36 & 91.7 & -- & -- & -- & -- & -- \\
-    \quad 8 blocks                  & 0.60B & 1.76 & 134$^\ddagger$ & 1.84 & 83.3 & -- & -- & -- & -- & -- \\
-    \smol-LA (4 steps)              & 0.92B & 4.28 & 239 & 2.43 & 53.3  & --   & --    & --   & --   & -- \\
-    \bottomrule
-  \end{tabular}
+\centering
+\caption{\textbf{LIBERO success and inference cost.} Screen: 60 episodes; suites and Full: 400. Cost per 16-action chunk on one A100 (batch 1, bf16); Params excludes the VAE and text encoder; TFLOP counts network and VAE encoder; GiB: peak memory. $^\ast$Unmodified weights, single-frame latents via the 0.5M-parameter adapter. $^\dagger$Suites and Full from an earlier evaluation pipeline, on an L4 (\cosmos reports 98.5\%~\citep{kim2026cosmospolicy}). $^\ddagger$Shared GPU. $^\S$Simulated: INT8 weights, bf16 kernels.}
+\label{tab:main}
+\small
+\setlength{\tabcolsep}{2.85pt}
+\begin{tabular}{@{}lrrrrrrrrrr@{}}
+\toprule
+& \multicolumn{4}{c}{Inference cost} & \multicolumn{6}{c}{Success rate (\%)} \\
+\cmidrule(lr){2-5}\cmidrule(l){6-11}
+Model & Params & TFLOP & ms & GiB & Screen & Spatial & Object & Goal & Long & Full \\
+\midrule
+\cosmos (5 steps) & 1.96B & 42.6 & 624 & 7.55 & 96.7 & 97.0 & 100.0 & 99.0 & 97.0 & 98.2$^\dagger$ \\
+\cosmos (1 step, 1 frame)$^\ast$ & 1.96B & 7.52 & 126 & 4.39 & 100.0 & -- & -- & -- & -- & -- \\
+Pruned + LoRA distillation & 1.40B & -- & -- & -- & -- & 83.0 & 100.0 & 82.0 & 85.0 & 87.5$^\dagger$ \\
+\midrule
+\textbf{\smol} & \textbf{0.88B} & \textbf{2.30} & \textbf{57} & \textbf{2.36} & 93.3 & 99.0 & 100.0 & 94.0 & 89.0 & \textbf{95.5} \\
+\quad + 7.5k training steps & 0.88B & 2.30 & 60 & 2.36 & 93.3 & 94.0 & 100.0 & 94.0 & 89.0 & 94.2 \\
+\quad INT8 weights$^\S$ & 0.88B & 2.30 & 65$^\ddagger$ & 2.36 & 91.7 & -- & -- & -- & -- & -- \\
+\quad 8 blocks & 0.60B & 1.76 & 134$^\ddagger$ & 1.84 & 83.3 & -- & -- & -- & -- & -- \\
+\smolla (4 steps) & 0.92B & 4.28 & 239 & 2.43 & 53.3 & -- & -- & -- & -- & -- \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-\paragraph{Q2: Where the 11$\times$ comes from.} Running the unmodified teacher for one step on single-frame inputs cuts
-latency 5$\times$, to 126\,ms, with no loss on the screening set; \smol's trunk redesign adds 2.2$\times$ in latency,
-3.3$\times$ in compute, and 1.9$\times$ in memory. At 57\,ms per chunk (6.8\,ms preprocessing, 12.9\,ms VAE, 36.9\,ms
-trunk) it issues 17.7 chunks (282 actions) per second; because chunks execute open loop, the chunk rate bounds how often
-the policy reacts to new observations. Per-channel INT8 quantization of the 172 largest linear layers shrinks the stored
-network from 1.64 to 0.85\,GiB and costs one screening episode; simulated with bf16 kernels, it does not yet reduce
-latency.
+\textbf{Q1: \smol retains most of the teacher's success.}
+\smol succeeds in 382/400 episodes (95.5\%; 95\% Wilson interval 93.0--97.1) against the teacher's 393/400 (98.2\%; 96.4--99.1); App.~\ref{app:rollouts} shows both from the same initial states.
+We detect no difference on Spatial and Object; the deficit lies in the multi-step Goal (94 vs.\ 99) and Long (89 vs.\ 97) suites, where failed rollouts usually complete the first subgoal and stall on the second.
+An earlier student that removed only 8 blocks and recovered with LoRA~\citep{hu2022lora} distillation (19.7M trainable parameters, under an hour on one L4, no demonstrations) on 414 teacher-rollout observations reached 87.5\%; \smol differs in distillation coverage, full fine-tuning, and the learned layout, effects we have not separated.
+Longer training does not help, and 8 blocks fall to 83.3\% on the screen (Table~\ref{tab:main}).
 
-\begin{wrapfigure}{r}{0.43\textwidth}
-  \vspace{-12pt}
-  \centering
-  {\scriptsize\makebox[0.333\linewidth]{current}\makebox[0.333\linewidth]{predicted}\makebox[0.333\linewidth]{real}}\\[1pt]
-  \includegraphics[width=\linewidth]{figs/fig2_world.png}
-  \caption{\textbf{World-head forecast}, decoded only for display.}
-  \label{fig:world}
-  \vspace{-10pt}
+\textbf{Q2: Where the 11$\times$ comes from.}
+Running the teacher's unmodified weights for one step on single-frame inputs cuts latency 5$\times$ and compute 5.7$\times$, to 126\,ms and 7.5\,TFLOP, with no loss on the screening set; with no adapter and the text truncated under the exact sink correction, the released model runs 8$\times$ faster on an L4 (1.83 to 0.23\,s; no failures in an 11-episode screen; App.~\ref{app:ladder}).
+\smol's trunk redesign adds 2.2$\times$ in latency, 3.3$\times$ in compute, and 1.9$\times$ in memory; of its 57\,ms, the transformer takes 37, the VAE encode 13, and preprocessing 7 (success against cost in App.~\ref{app:pareto}).
+At 57\,ms per chunk it issues 17.7 chunks (282 actions) per second; because chunks execute open loop, the chunk rate bounds how often the policy reacts to new observations.
+Cutting chunks short does not help: re-querying the teacher after 8 of its 16 actions solves no screening episode at one or five denoising steps, so faster reaction needs training-time changes~\citep{black2025rtc}.
+
+\begin{wrapfigure}[9]{r}{0.36\linewidth}
+\vspace{-12pt}
+\centering
+{\scriptsize\makebox[0.333\linewidth]{current}\makebox[0.333\linewidth]{predicted}\makebox[0.333\linewidth]{real}}\\[1pt]
+\includegraphics[width=\linewidth]{figs/world_head_forecast.png}
+\caption{\textbf{World-head forecast}, decoded only for display.}
+\label{fig:dreams}
 \end{wrapfigure}
+\textbf{Q3: \smol remains a world model.}
+On 96 held-out contexts, \smol's forecast of the view 16 steps ahead lowers latent L1 by 24\% relative to copying the current frame (0.101 vs.\ 0.133), and lowers the end-point error between RAFT~\citep{teed2020raft} optical flow to the predicted and to the real future from 1.63 to 1.43 pixels.
+Decoded forecasts (Fig.~\ref{fig:dreams}) keep the scene and place the arm near its future pose but blur its appearance, and LPIPS~\citep{zhang2018lpips} stays at the copy-frame level (0.128 vs.\ 0.115): the world head captures motion rather than texture.
 
-\paragraph{Q3: \smol\ remains a world model.} On 96 held-out contexts, \smol's forecast of the view 16 steps ahead
-lowers latent L1 by 24\% relative to copying the current frame (0.101 vs.\ 0.133), and lowers the end-point error
-between RAFT~\citep{teed2020raft} optical flow to the predicted and to the real future from 1.63 to 1.43 pixels. Decoded
-forecasts (Fig.~\ref{fig:world}) keep the scene and place the arm near its future pose but blur its appearance, and
-LPIPS~\citep{zhang2018lpips} stays at the copy-frame level (0.128 vs.\ 0.115): the world head captures motion rather
-than texture.
+\textbf{Q4: Richer WAM components hurt at this scale.}
+Porting ABot-M0.5~\citep{chen2026abotm05} onto \smol (latent-action tokens, mixture-of-transformer towers, four-step flow matching, and dream forcing) yields \smolla, which succeeds in 53.3\% of screening episodes at 239\,ms, and reward fine-tuning of its world head collapses success to 5.0--16.7\% while worsening every image metric (App.~\ref{app:richer}).
 
-\paragraph{Q4: Richer WAM components hurt at this scale.} We port ABot-M0.5~\citep{chen2026abot} onto \smol\ (39M more
-parameters): tokens from a frozen 32-dimensional latent-action model behind an asymmetric attention mask,
-mixture-of-transformer towers for the latent-action, arm, and gripper streams, four-step conditional flow matching, and
-dream forcing, which trains the action head on predicted latents. It succeeds in 53.3\% of screening episodes at
-239\,ms (\smol: 93.3\% at 57\,ms). Its one-step action estimate matches \smol's offline (validation L1 0.089 vs.\
-0.091), but four-step sampling raises the error to 0.155 and one or two steps recover only 63.3\% and 70.0\%; its
-latent-action predictions are worse than predicting the mean code (MSE 1.15, variance 0.64), and its world head is no
-better (latent L1 0.102). Fine-tuning its world head with reward-weighted denoising regression under five rewards built
-from optical flow, depth~\citep{yang2024depthanythingv2}, and LPIPS worsened every image metric (LPIPS from 0.130 to
-0.167--0.177) and collapsed success to 5.0--16.7\% within 300 steps, likely because the objective has no action term
-while the shared trunk trains.
-
+%===============================================================================
 \section{Limitations and Conclusion}
+\label{sec:limitations}
 
-\paragraph{Limitations.} We evaluate \smol\ only on LIBERO; future work should extend evaluation to additional robotics
-benchmarks such as RoboCasa and, ultimately, real-robot settings. We also observe that reducing transformer depth
-disproportionately affects long-horizon tasks, with the largest degradation on LIBERO-Long. Developing pruning
-strategies that preserve long-horizon control performance therefore remains an important open problem.
+\textbf{Limitations.}
+We evaluate \smol on LIBERO alone, with one seed, and LIBERO is near-saturated: compact action-only policies exceed 95\% on it (e.g., VLA-Adapter, on a 0.5B language model~\citep{wang2026vlaadapter}), so it cannot show what the video prior adds; RoboCasa and real robots come next.
+The teacher's 400 episodes come from an earlier evaluation pipeline on an L4; on the current pipeline we ran only its 60-episode screen.
+\smol's deficit concentrates in the multi-step suites, LIBERO-Long above all, so compression that preserves long-horizon control remains open.
+Whether training the world head helps the policy is untested (App.~\ref{app:ablations}), and all timings come from data-center GPUs, not edge devices.
 
-\paragraph{Conclusion.} A pretrained video WAM tolerates large interface and depth changes when each is distilled
-rather than applied zero-shot, but not auxiliary objectives that train its shared trunk without an action anchor;
-\smol\ keeps its world prediction and 95.5\% LIBERO success at a fraction of the teacher's cost.
+\textbf{Conclusion.}
+A pretrained video WAM tolerates large interface and depth changes when each is distilled rather than applied zero-shot, but not objectives that train its trunk without an action anchor; \smol keeps its world prediction and 95.5\% LIBERO success at a fraction of the teacher's cost.
 
-\bibliographystyle{unsrtnat}
+\bibliographystyle{plainnat}
 \bibliography{refs}
+
+%===============================================================================
+\appendix
+\raggedbottom  % the appendix's figures stay in place ([H]); end short pages with space, not stretched gaps
+\section{Additional results}
+\label{app}
+
+\subsection{Success against cost}
+\label{app:pareto}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figs/pareto.pdf}
+\caption{\textbf{LIBERO success against cost} for every row of Table~\ref{tab:main} with an A100 cost. Filled markers are the 60-episode screen and hollow markers the 400-episode protocol (the teacher's as in Table~\ref{tab:main}); the 8-block latency was measured on a shared GPU.}
+\label{fig:pareto}
+\end{figure}
+
+\smol and its 7.5k-step continuation sit in the cheap, successful corner. The 8-block variant saves a further 0.5\,TFLOP but loses 10 points on the screen, and \smolla is both slower and less successful than \smol. Per-channel INT8 quantization of the 172 largest linear layers shrinks the stored network from 1.64 to 0.85\,GiB and costs one screening episode; simulated with bf16 kernels, it does not yet reduce latency.
+
+\subsection{Training curves}
+\label{app:training}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figs/training.pdf}
+\caption{\textbf{Distillation of \smol} (batch 32): normalized L1 of the one-step action chunk and future latents against the demonstrations, on training batches and held-out validation rows. Vertical lines mark the switch from the teacher's 1,764-token layout to the compact one, and the start of 7,500 further steps.}
+\label{fig:training}
+\end{figure}
+
+Validation action L1 falls fastest in the teacher's layout, keeps falling after the switch to the compact layout, and settles near 0.09, ten times the teacher's own one-step error, while \smol still succeeds in 95.5\% of episodes: offline L1 is a poor proxy for closed-loop success. The 7,500 further steps lower the training loss but neither the validation loss nor success (Table~\ref{tab:main}).
+
+\subsection{The zero-training ladder on an L4}
+\label{app:ladder}
+
+\begin{table}[H]
+\caption{\textbf{Zero-training speedups on the released weights} (L4, uncontended single-query benchmark). Deviation: mean absolute difference from the five-step model's actions (raw units) on the benchmark's single observation; over a 161-observation offline set, one step deviates by 0.003. Closed-loop scores are single-trial screens, so they screen rather than resolve small differences.}
+\label{tab:ladder}
+\centering
+\small
+\begin{tabular}{lccl}
+\toprule
+Configuration (cumulative) & s/chunk & deviation & closed loop \\
+\midrule
+\cosmos 2B, 5 denoising steps (as released) & 1.83 & -- & 5/5, 3/3 Spatial \\
+1 denoising step & 1.22 & 0.005 & 5/5 \\
++ no future-image decode & 0.54 & 0.005 & 5/5 \\
++ single-frame VAE encode + exact text sink & \textbf{0.23} & 0.044 & 5/5, 3/3 Spatial, 3/3 Goal \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each change is applied to the released model with no training. At one step, a query on the L4 spends 0.2\,s in the transformer, 0.35\,s encoding 33-frame clips, and 0.68\,s decoding future images that the controller never reads. The released evaluation pipeline decodes them; the teacher pipeline of Table~\ref{tab:main} does not.
+
+\subsection{Richer WAM components}
+\label{app:richer}
+
+\smolla adds 39M parameters to \smol: tokens from a frozen 32-dimensional latent-action model behind an asymmetric attention mask, mixture-of-transformer towers for the latent-action, arm, and gripper streams, four-step conditional flow matching, and dream forcing, which trains the action head on predicted latents. Its one-step action estimate matches \smol's offline (validation L1 0.089 vs.\ 0.091), but four-step sampling raises the error to 0.155, and sampling with one or two steps recovers only 63.3\% and 70.0\% of screening episodes; its latent-action predictions are worse than predicting the mean code (MSE 1.15, variance 0.64), and its world head is no better (latent L1 0.102). Reward-weighted fine-tuning of the world head under five rewards built from optical flow, depth~\citep{yang2024depthanythingv2}, and LPIPS worsened every image metric (LPIPS from 0.130 to 0.167--0.177) and collapsed success to 5.0--16.7\% within 300 steps, likely because the objective has no action term while the shared trunk trains.
+
+\subsection{Single-flag ablations}
+\label{app:ablations}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figs/ablations.pdf}
+\caption{\textbf{Single-flag ablations} of the \smol recipe, each trained for 2,500 steps (half the main run) and scored on the 60-episode screen. The shaded band spans five episodes either side of the reference.}
+\label{fig:ablations}
+\end{figure}
+
+Every change lands within five episodes of the reference (78.3\%), so at this budget the screen cannot separate these choices; the full-budget model scores 93.3\% on the same screen. Six planned ablations, among them removing the world head, the distillation targets, and the layout curriculum, were not run.
+
+\subsection{Rollouts}
+\label{app:rollouts}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figs/rollouts.pdf}
+\caption{\textbf{Rollouts} of \smol (left) and \cosmos (right) from the same initial state, one task per suite: first, middle, and last frames. Both succeed on all four, in 131, 147, 154, and 234 steps (\smol) and 143, 147, 138, and 247 steps (\cosmos). Recorded on an Apple M2 Pro.}
+\label{fig:rollouts}
+\end{figure}
 
 \end{document}

@@ -7,7 +7,7 @@
 Timi Owolabi · Hikmah Olawore · Frances Adelakun · Ayotomiwa Oyewumi<br>
 [ML Collective](https://mlcollective.org)
 
-**NeurIPS 2026 Workshop on Robotics World Modeling**
+**NeurIPS 2026 Workshop on Robot Learning with World Models**
 
 [![Project page](https://img.shields.io/badge/Project-Page-2a78d6?style=flat-square)](https://smolwam.vercel.app)
 [![Paper](https://img.shields.io/badge/Paper-PDF-b31b1b?style=flat-square)](paper/smolwam.pdf)
@@ -35,7 +35,7 @@ at 11× lower latency, trains in 3.6 GPU-hours, and runs on CUDA GPUs, Apple sil
 |---|---:|---:|---:|
 | LIBERO success (400 episodes) | 98.2% | **95.5%** | 97% of the teacher |
 | Trunk parameters | 1.96 B | **0.88 B** | 2.2× fewer |
-| Compute per 16-action chunk | 31.0 TFLOP | **2.30 TFLOP** | 13.5× less |
+| Compute per 16-action chunk | 42.6 TFLOP | **2.30 TFLOP** | 18.5× less |
 | Latency per chunk | 624 ms | **57 ms** | 11× faster |
 | Peak GPU memory | 7.55 GiB | **2.36 GiB** | 3.2× less |
 | Denoising steps | 5 | **1** | |
@@ -45,7 +45,7 @@ earlier evaluation pipeline; Cosmos Policy reports 98.5%.</sub>
 
 ## News
 
-- **2026-10** · Code, weights and paper released. SmolWAM appears at the NeurIPS 2026 Workshop on Robotics World Modeling.
+- **2026-10** · Code, weights and paper released. SmolWAM appears at the NeurIPS 2026 Workshop on Robot Learning with World Models.
 
 ## Contents
 
@@ -264,7 +264,7 @@ tests/              unit tests and a regression test against the released weight
 @inproceedings{owolabi2026smolwam,
   title     = {SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices},
   author    = {Owolabi, Timi and Olawore, Hikmah and Adelakun, Frances and Oyewumi, Ayotomiwa},
-  booktitle = {NeurIPS 2026 Workshop on Robotics World Modeling},
+  booktitle = {NeurIPS 2026 Workshop on Robot Learning with World Models: Capabilities, Frontiers, and Challenges},
   year      = {2026},
   url       = {https://smolwam.vercel.app}
 }
